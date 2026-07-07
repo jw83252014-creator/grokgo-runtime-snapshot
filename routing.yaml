@@ -26,12 +26,15 @@ defaults:
   escalate_on_fail: true    # schema failure bumps ONE tier, never straight to t4
   max_turns: 5
   max_output_tokens: 1024
+  budget_day_start_hour_utc: 0  # overridden by BRAKES_TZ_OFFSET_HOURS when set
 
 routes:
   watcher.tick:          {tier: t0}
   bridge.dispatch:       {tier: t0}
   route.glue:            {tier: t0}
   observability.receipt: {tier: t0}    # append-only receipt writes are code-only
+  behavioral.markers:    {tier: t0}    # deterministic receipt/log classifier
+  behavioral.calibrate:  {tier: t1, max_output_tokens: 512} # sampled t1 audit only
   receipt.query:         {tier: t1, max_output_tokens: 512}
   classify.task:         {tier: t1, max_output_tokens: 128}
   extract.fields:        {tier: t1}
@@ -41,7 +44,7 @@ routes:
   mining.adjudicate:     {tier: t3}    # 5-7 band + disagreements, pairwise
   harvest.triage:        {tier: t1}
   draft.routine:         {tier: t2}
-  draft.voice:           {tier: t2}
+  draft.voice:           {tier: t1, max_output_tokens: 700}
   status.report:         {tier: t2}
   context.compress.fable: {tier: t2, max_output_tokens: 1024}
   public.post.draft:     {tier: t3}

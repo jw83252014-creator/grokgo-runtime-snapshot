@@ -2,6 +2,7 @@
 spikes/
 node_modules/
 __pycache__/
+researcher_state/
 *.pyc
 .DS_Store
 logs/fable-terminal-launch*.log

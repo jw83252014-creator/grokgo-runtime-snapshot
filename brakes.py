@@ -106,8 +106,15 @@ def _budget_day_start(now: float, cfg: dict | None = None) -> float:
     """Return the last configured budget reset boundary.
 
     Default is UTC midnight. Set defaults.budget_day_start_hour_utc to make the
-    reset boundary explicit without changing the existing default.
+    reset boundary explicit without changing the existing default. Set
+    BRAKES_TZ_OFFSET_HOURS (for example, -8) to reset at midnight for a fixed
+    local offset.
     """
+    tz_offset = os.environ.get("BRAKES_TZ_OFFSET_HOURS")
+    if tz_offset not in (None, ""):
+        offset = float(tz_offset) * 3600
+        shifted = now + offset
+        return shifted - (shifted % 86400) - offset
     defaults = (cfg or {}).get("defaults", {})
     start_hour = int(defaults.get("budget_day_start_hour_utc", 0)) % 24
     offset = start_hour * 3600

@@ -51,6 +51,7 @@ Do not assume old chat context is complete. The repo is the shared memory.
 - `bus.py`: inbox/outbox task movement.
 - `mining_pipeline.py`: staged X/content intelligence pipeline.
 - `review_queue.py`: draft/review gate before public output.
+- `tools/behavioral_markers.py`: deterministic t0 marker computer for goal/polish/correction/cooperation/maintenance signals.
 - `directives/`: small task-specific prompts/contracts.
 - `proposals/`: architecture notes, handoffs, and non-live plans.
 - `receipts/`: append-only runtime receipts. Treat as evidence, not scratch space.
@@ -74,6 +75,13 @@ Use receipts for anything meaningful. Redact secrets before quoting. Do not put 
 - A `t4` call must state why Fable is needed and what decision it changes.
 - Use clear stop conditions, budgets, and output contracts.
 - If a task is just glue, parsing, formatting, moving files, or simple scoring, do not burn Fable.
+- Behavioral classification stays t0/deterministic in the hot path. Use sampled t1 calibration only to audit the rules; the LLM judges the classifier, it does not become the classifier.
+
+## Brake Configuration
+
+- Budget windows default to UTC midnight.
+- `defaults.budget_day_start_hour_utc` in `routing.yaml` can set an explicit UTC reset hour.
+- `BRAKES_TZ_OFFSET_HOURS` overrides that with a fixed local-midnight offset, e.g. `-8` for UTC-8. Keep this fixed-offset and explicit for deterministic ledgers.
 
 ## Current Priority Threads
 

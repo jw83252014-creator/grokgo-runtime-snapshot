@@ -94,6 +94,21 @@ class BrakesTest(unittest.TestCase):
             noon_utc_day_two - 86400,
         )
 
+    def test_budget_tz_offset_env_override(self):
+        try:
+            os.environ["BRAKES_TZ_OFFSET_HOURS"] = "-8"
+            two_days_nine_utc = 2 * 86400 + 9 * 3600
+            self.assertEqual(
+                self.brakes._budget_day_start(two_days_nine_utc, {}),
+                2 * 86400 + 8 * 3600,
+            )
+            self.assertEqual(
+                self.brakes._budget_day_start(two_days_nine_utc - 2 * 3600, {}),
+                1 * 86400 + 8 * 3600,
+            )
+        finally:
+            os.environ.pop("BRAKES_TZ_OFFSET_HOURS", None)
+
     def test_note_work_parks_after_two_atomic_empty_outputs(self):
         self.brakes.note_work("unit-lane", produced_output=False)
         streak = self.root / "parked" / ".streak_unit-lane"
