@@ -4,18 +4,18 @@ set -euo pipefail
 mode="${1:---check}"
 
 safe_roots=(
-  "/Users/rentamac/grokgo"
-  "/Users/rentamac/grok-go-organism-share"
-  "/Users/rentamac/agent-bridge"
-  "/Users/rentamac/null-command-center"
-  "/Users/rentamac/badass-fable"
-  "/Users/rentamac/mining-engine"
-  "/Users/rentamac/the-device-site"
-  "/Users/rentamac/command-center"
+  "$HOME/grokgo"
+  "$HOME/grok-go-organism-share"
+  "$HOME/agent-bridge"
+  "$HOME/null-command-center"
+  "$HOME/badass-fable"
+  "$HOME/mining-engine"
+  "$HOME/the-device-site"
+  "$HOME/command-center"
 )
 
 runtime_roots=(
-  "/Users/rentamac/agent-comms"
+  "$HOME/agent-comms"
 )
 
 ensure_ignore() {

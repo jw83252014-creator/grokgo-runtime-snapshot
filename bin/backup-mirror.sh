@@ -18,7 +18,7 @@ done
 TS=$(date -u +%Y%m%d-%H%M)
 tar czf "$SNAP/data-$TS.tgz" -C "$HOME" \
   mining-engine/mining-runs \
-  ".claude/projects/-Users-rentamac-grokgo/memory" 2>/dev/null \
+  ".claude/projects/-Users-LOCAL_USER-grokgo/memory" 2>/dev/null \
   && echo "snapshot: $SNAP/data-$TS.tgz"
 # keep only the 10 newest snapshots
 ls -t "$SNAP"/data-*.tgz 2>/dev/null | tail -n +11 | xargs rm -f 2>/dev/null

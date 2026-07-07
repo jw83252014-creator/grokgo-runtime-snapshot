@@ -85,13 +85,13 @@ Title: **Find Your Niche by Mining Your Own Data**
 
 ## Source spine
 
-- `/Users/rentamac/grokgo/proposals/paths-to-money.md`
-- `/Users/rentamac/grokgo/proposals/money-board.md`
-- `/Users/rentamac/mining-engine/README.md`
-- `/Users/rentamac/mining-engine/research/x-algorithm-voice-agent-systems.md`
-- `/Users/rentamac/mining-engine/x-strategy/`
-- `/Users/rentamac/mining-engine/prompts/jeff-filter-agent-instructions.md`
-- Grok goldmine chat: `/Users/rentamac/Downloads/grok-chat-2026-05-10T13-17-46.json` (reference for system design; do not publish raw chat)
+- `$HOME/grokgo/proposals/paths-to-money.md`
+- `$HOME/grokgo/proposals/money-board.md`
+- `$HOME/mining-engine/README.md`
+- `$HOME/mining-engine/research/x-algorithm-voice-agent-systems.md`
+- `$HOME/mining-engine/x-strategy/`
+- `$HOME/mining-engine/prompts/jeff-filter-agent-instructions.md`
+- Grok goldmine chat: `$HOME/Downloads/grok-chat-2026-05-10T13-17-46.json` (reference for system design; do not publish raw chat)
 
 ## Gates
 

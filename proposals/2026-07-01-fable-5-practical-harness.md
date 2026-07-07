@@ -18,7 +18,7 @@ Make Fable 5 a `t4` architect and artifact generator, not a runtime worker.
 ## Implementation
 
 1. Add a reusable Codex skill:
-   - `/Users/rentamac/.codex/skills/fable-5-harness`
+   - `$HOME/.codex/skills/fable-5-harness`
 
 2. Use this routing policy:
    - `t0`: deterministic code
@@ -78,6 +78,6 @@ The smoke test is not done until the dispatcher writes a receipt and the result 
 
 See:
 
-- `/Users/rentamac/agent-comms/research/fable-5-harness/fable-5-practical-harness.md`
-- `/Users/rentamac/agent-comms/research/fable-5-harness/fable-direct-message-current.md`
-- `/Users/rentamac/agent-comms/research/fable-5-harness/fable-team-handoff-package-2026-07-01.md`
+- `$HOME/agent-comms/research/fable-5-harness/fable-5-practical-harness.md`
+- `$HOME/agent-comms/research/fable-5-harness/fable-direct-message-current.md`
+- `$HOME/agent-comms/research/fable-5-harness/fable-team-handoff-package-2026-07-01.md`

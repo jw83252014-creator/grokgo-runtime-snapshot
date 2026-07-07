@@ -45,7 +45,7 @@ Every agent should run the same five-step loop:
 
 Use the reusable prompt here:
 
-`/Users/rentamac/grokgo/prompt-lab/prompts/fleet-workflow-contract-v1.md`
+`$HOME/grokgo/prompt-lab/prompts/fleet-workflow-contract-v1.md`
 
 Use it as:
 
@@ -60,21 +60,21 @@ It is intentionally clean-room: structure, taste, routing, receipts, and gates; 
 
 Known project roots already under git:
 
-- `/Users/rentamac/grokgo`
-- `/Users/rentamac/grok-go-organism-share`
-- `/Users/rentamac/agent-bridge`
-- `/Users/rentamac/null-command-center`
-- `/Users/rentamac/badass-fable`
-- `/Users/rentamac/mining-engine`
+- `$HOME/grokgo`
+- `$HOME/grok-go-organism-share`
+- `$HOME/agent-bridge`
+- `$HOME/null-command-center`
+- `$HOME/badass-fable`
+- `$HOME/mining-engine`
 
 Safe project roots that should be initialized:
 
-- `/Users/rentamac/the-device-site`
-- `/Users/rentamac/command-center` after adding a runtime/log ignore file
+- `$HOME/the-device-site`
+- `$HOME/command-center` after adding a runtime/log ignore file
 
 Runtime/shared directories that should remain audit-first until reviewed:
 
-- `/Users/rentamac/agent-comms`
+- `$HOME/agent-comms`
 
 Reason: `agent-comms` contains live meeting logs, state, attachments, receipts, and operational scratch space. It should get a more deliberate split: docs/config under git, volatile logs/state ignored or moved to a runtime subfolder.
 

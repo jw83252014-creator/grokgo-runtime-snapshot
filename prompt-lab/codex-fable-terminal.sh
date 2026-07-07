@@ -10,10 +10,10 @@ fi
 CMD=(
   codex exec
   --profile fable-terminal
-  --cd /Users/rentamac/grokgo/codex-fable-terminal
-  --add-dir /Users/rentamac/grokgo
-  --add-dir /Users/rentamac/agent-comms
-  --add-dir /Users/rentamac/null-command-center
+  --cd $HOME/grokgo/codex-fable-terminal
+  --add-dir $HOME/grokgo
+  --add-dir $HOME/agent-comms
+  --add-dir $HOME/null-command-center
   --dangerously-bypass-approvals-and-sandbox
 )
 

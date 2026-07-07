@@ -14,11 +14,11 @@ PJ / Moonshots workshop:
 - https://luma.com/aghmkp6b
 
 Relevant local source material:
-- `/Users/rentamac/grokgo/proposals/digital-organism-film-project.md`
-- `/Users/rentamac/nous-package/SUBMISSION.md`
-- `/Users/rentamac/nous-package/grok-go-living-research-organism.md`
-- `/Users/rentamac/The-Device/TWO-MOVIES-split-and-scenes-2026-06-17.md`
-- `/Users/rentamac/The-Device/production/grok-go-nous-full-draft.mp4`
+- `$HOME/grokgo/proposals/digital-organism-film-project.md`
+- `$HOME/nous-package/SUBMISSION.md`
+- `$HOME/nous-package/grok-go-living-research-organism.md`
+- `$HOME/The-Device/TWO-MOVIES-split-and-scenes-2026-06-17.md`
+- `$HOME/The-Device/production/grok-go-nous-full-draft.mp4`
 
 ## Verified Competition Facts
 
@@ -210,6 +210,6 @@ Phase 5 — Compliance pass
    - planetary science / research organism.
 2. Pick one IP-safe submission title and scope.
 3. Draft coversheet and 12-page treatment.
-4. Build a trailer asset board from `/Users/rentamac/The-Device/production`.
+4. Build a trailer asset board from `$HOME/The-Device/production`.
 5. Ask Fable to compare against PJ's stated workflow and suggest our production discipline.
 

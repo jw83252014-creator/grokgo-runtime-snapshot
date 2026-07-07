@@ -102,16 +102,16 @@ Deduped and ordered by usefulness; earliest line ref kept when merging repeats.
 Every local file/path below was proposed or "written" inside the Grok browser lane, which cannot actually write to disk — treat these as unmaterialized specs until confirmed on the Mac. (External repos/URLs at the end are real references, not files to create. Note: several already exist under `~/grokgo/proposals/` and `~/agent-comms/` from other lanes — verify before recreating.)
 
 Agent-comms / bridge (proposed):
-- /Users/rentamac/agent-comms/ADAPTER_PATTERN.md (adapter spec v1: approval gates, lane allowlists, receipt minimums)
-- /Users/rentamac/agent-comms/GEMINI_ONBOARDING_PROMPT_2026-05-21.md
-- /Users/rentamac/agent-comms/KEYSTONE_CONTINUITY.md
-- /Users/rentamac/agent-comms/playbooks/ONBOARD_BROWSER_AGENT.md
-- /Users/rentamac/agent-comms/research/token-scout/YYYY-MM-DD.md (digest template)
-- /Users/rentamac/agent-comms/research/recursive-token-research-lane-2026-05-21.md
-- /Users/rentamac/agent-comms/mining/X-Grok-Mining-Manifest-2026-05-20.md
-- /Users/rentamac/agent-comms/app-strategy.md
-- /Users/rentamac/null-command-center/receipts/token-scout-YYYY-MM-DD.json
-- /Users/rentamac/null-command-center/docs/agent-bridge-current-doctrine-2026-05-20.md
+- $HOME/agent-comms/ADAPTER_PATTERN.md (adapter spec v1: approval gates, lane allowlists, receipt minimums)
+- $HOME/agent-comms/GEMINI_ONBOARDING_PROMPT_2026-05-21.md
+- $HOME/agent-comms/KEYSTONE_CONTINUITY.md
+- $HOME/agent-comms/playbooks/ONBOARD_BROWSER_AGENT.md
+- $HOME/agent-comms/research/token-scout/YYYY-MM-DD.md (digest template)
+- $HOME/agent-comms/research/recursive-token-research-lane-2026-05-21.md
+- $HOME/agent-comms/mining/X-Grok-Mining-Manifest-2026-05-20.md
+- $HOME/agent-comms/app-strategy.md
+- $HOME/null-command-center/receipts/token-scout-YYYY-MM-DD.json
+- $HOME/null-command-center/docs/agent-bridge-current-doctrine-2026-05-20.md
 - ~/agent-bridge/terminal_client.py (polls Agent Bridge API at 127.0.0.1:8787)
 - ~/agent-bridge/grok-bridge-server.py (relay at :8787, file-based inbox/outbox)
 
@@ -145,9 +145,9 @@ Grokgo tasks/notes (proposed):
 Creative Department + video (proposed):
 - creative-department/ (README, director/grok/gemini/claude/wildcard cells, collaboration-workflow.md, grok-imagine-automation.md, telegram-approval-pipeline.md, monetization-paths.md, metacron-movie-ideas.md, neural-dashboard-visuals.md, grok-imagine-dashboard-prompts.md)
 - ~/grokgo/creative-department/luma-movie-handoff-2026-06-17.md, video-creation-tools-and-skills.md, video-production-preproduction-resources.md, app-creation-preproduction-production-resources.md
-- /Users/rentamac/grok-go-organism-share/docs/movie-creative-department-ledger-2026-06-10.md, the-device-vajra-video-prompt-pack-2026-06-10.md
-- /Users/rentamac/grok-go-organism-share/source-artifacts/grok-reports/2026-06-10-grok-chrome-creative-handoff.md
-- /Users/rentamac/The-Device/production/Creative-Department-Video-Launch-2026-06-10.md
+- $HOME/grok-go-organism-share/docs/movie-creative-department-ledger-2026-06-10.md, the-device-vajra-video-prompt-pack-2026-06-10.md
+- $HOME/grok-go-organism-share/source-artifacts/grok-reports/2026-06-10-grok-chrome-creative-handoff.md
+- $HOME/The-Device/production/Creative-Department-Video-Launch-2026-06-10.md
 
 Neural dashboard (proposed):
 - projects/neural-dashboard/ (README.md, ux-research.md, node-types.md, Human-Tester-Cell.md, Adaptive-Cell.md, Memory-Cell.md, status-metrics.md, cell-roles.md, researcher-cell.md)

@@ -1,6 +1,6 @@
 # Private Exclusions
 
-This public snapshot was created from `/Users/rentamac/grokgo` but deliberately
+This public snapshot was created from the private local GrokGo runtime but deliberately
 does not include every file.
 
 ## Excluded

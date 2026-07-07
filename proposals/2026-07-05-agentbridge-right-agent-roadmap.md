@@ -24,9 +24,9 @@ The key abstraction is a durable lane:
   "bridge_handles": ["@fable"],
   "current_backend": "claude-code",
   "backend_account_label": "jw83252014",
-  "state_dir": "/Users/rentamac/grokgo",
-  "memory_dir": "/Users/rentamac/agent-comms/memory/fable",
-  "receipt_stream": "/Users/rentamac/agent-comms/receipts/fable.jsonl",
+  "state_dir": "$HOME/grokgo",
+  "memory_dir": "$HOME/agent-comms/memory/fable",
+  "receipt_stream": "$HOME/agent-comms/receipts/fable.jsonl",
   "approval_profile": "high-reasoning-draft-only",
   "allowed_tools": ["read_files", "write_drafts", "run_tests"],
   "blocked_tools": ["public_post", "spend_money", "change_accounts", "send_dm"],
@@ -38,16 +38,16 @@ Account changes should not erase lane identity. A lane survives if its memory, r
 
 ## What Exists Already
 
-- `agents:fable-claude.0` tmux pane in `/Users/rentamac/grokgo`.
+- `agents:fable-claude.0` tmux pane in `$HOME/grokgo`.
 - Fable iMessage watcher pane: `agents:fable-imsg.0`.
 - Grok compatibility pipes:
-  - `/Users/rentamac/agent-bridge/comm/grok-inbound.md`
-  - `/Users/rentamac/agent-bridge/comm/grok-outbound.md`
+  - `$HOME/agent-bridge/comm/grok-inbound.md`
+  - `$HOME/agent-bridge/comm/grok-outbound.md`
 - Grok overlay:
-  - `/Users/rentamac/agent-bridge/AgentBridge-Grok-Relay.user.js`
+  - `$HOME/agent-bridge/AgentBridge-Grok-Relay.user.js`
 - Many launchd agents for AgentBridge lanes.
-- Existing receipts under `/Users/rentamac/agent-comms/receipts`.
-- Existing Fable/Hermes/harness plans under `/Users/rentamac/agent-comms/research` and `/Users/rentamac/grokgo/proposals`.
+- Existing receipts under `$HOME/agent-comms/receipts`.
+- Existing Fable/Hermes/harness plans under `$HOME/agent-comms/research` and `$HOME/grokgo/proposals`.
 
 ## Workstream A - Durable Lane Registry
 
@@ -64,8 +64,8 @@ Create a single registry file that maps agents to:
 
 Draft output:
 
-- `/Users/rentamac/agent-comms/agents/lane-registry.json`
-- `/Users/rentamac/agent-comms/agents/lane-registry.md`
+- `$HOME/agent-comms/agents/lane-registry.json`
+- `$HOME/agent-comms/agents/lane-registry.md`
 
 ## Workstream B - Memory Layout
 

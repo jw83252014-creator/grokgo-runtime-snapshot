@@ -42,8 +42,8 @@
     "no creator-client data processing without consent boundaries"
   ],
   "sources": [
-    "/Users/rentamac/grokgo/proposals/creator-x-course-engine.md",
-    "/Users/rentamac/grokgo/proposals/paths-to-money.md",
-    "/Users/rentamac/grokgo/proposals/master-backlog.md"
+    "$HOME/grokgo/proposals/creator-x-course-engine.md",
+    "$HOME/grokgo/proposals/paths-to-money.md",
+    "$HOME/grokgo/proposals/master-backlog.md"
   ]
 }

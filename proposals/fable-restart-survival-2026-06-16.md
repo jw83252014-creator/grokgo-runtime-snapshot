@@ -9,7 +9,7 @@ It is running as:
 ```bash
 claude --name Fable \
   --model claude-opus-4-8 \
-  --append-system-prompt-file /Users/rentamac/grokgo/prompt-lab/prompts/fable5-distilled-for-claude-code.md \
+  --append-system-prompt-file $HOME/grokgo/prompt-lab/prompts/fable5-distilled-for-claude-code.md \
   --dangerously-skip-permissions \
   --resume 6215ae9c-7295-4e7e-8f6f-37d652602a5b
 ```
@@ -17,7 +17,7 @@ claude --name Fable \
 ## What Changed
 
 - Added `prompt-lab/cc-fable-resume-dangerous.sh`
-  - Resumes the latest Claude Code session under `/Users/rentamac/grokgo`.
+  - Resumes the latest Claude Code session under `$HOME/grokgo`.
   - Keeps the clean-room Fable prompt.
   - Keeps Pliny reference material reference-only, not injected.
 - Added `prompt-lab/fable-claude.command`
@@ -26,7 +26,7 @@ claude --name Fable \
   - Launches the command file with `open -a Terminal`.
   - Avoids duplicate Fable terminals if one is already running.
 - Installed LaunchAgent:
-  - `/Users/rentamac/Library/LaunchAgents/com.jeff.fable-claude-terminal.plist`
+  - `$HOME/Library/LaunchAgents/com.jeff.fable-claude-terminal.plist`
   - `RunAtLoad=true`
   - Opens the visible Fable terminal on login/restart.
 

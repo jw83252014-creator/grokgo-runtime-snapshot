@@ -2,7 +2,7 @@
   "run_id": "keepkill-20260613-202623",
   "s2_task": "keepkill-20260613-202623-s2",
   "adjudicate_task": null,
-  "target": "/Users/rentamac/grokgo/queue/keepkill-20260613-202623-s2.task.json",
+  "target": "$HOME/grokgo/queue/keepkill-20260613-202623-s2.task.json",
   "created_at": "2026-06-13T20:26:23-0700",
   "anchors": [
     {

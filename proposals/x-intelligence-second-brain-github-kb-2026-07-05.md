@@ -6,7 +6,7 @@ Create a Git-safe knowledge base that agents can use without re-scanning all of 
 
 ## Proposed Root
 
-`/Users/rentamac/grokgo/knowledge-base/x-intelligence/`
+`$HOME/grokgo/knowledge-base/x-intelligence/`
 
 ## Structure
 

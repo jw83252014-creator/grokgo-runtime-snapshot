@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- DRAFT — load only after Jeff approves: launchctl load ~/grokgo/com.jeff.fable-self-improve.plist
+<!-- DRAFT TEMPLATE — load only after explicit approval and after replacing /path/to/grokgo.
      Runs the reflection pass daily at 09:00. The script self-throttles (no-op under MIN_NEW new
      transcripts), so a daily schedule is cheap. Unload to disable. -->
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -10,7 +10,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/rentamac/grokgo/self-improve.sh</string>
+    <string>/path/to/grokgo/self-improve.sh</string>
     <string>--once</string>
   </array>
   <key>StartCalendarInterval</key>
@@ -21,9 +21,9 @@
   <key>RunAtLoad</key>
   <false/>
   <key>StandardOutPath</key>
-  <string>/Users/rentamac/grokgo/logs/self-improve.out</string>
+  <string>/path/to/grokgo/logs/self-improve.out</string>
   <key>StandardErrorPath</key>
-  <string>/Users/rentamac/grokgo/logs/self-improve.err</string>
+  <string>/path/to/grokgo/logs/self-improve.err</string>
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>

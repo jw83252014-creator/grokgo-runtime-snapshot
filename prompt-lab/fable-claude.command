@@ -1,2 +1,2 @@
 #!/bin/bash
-exec /Users/rentamac/grokgo/prompt-lab/cc-fable-resume-dangerous.sh
+exec $HOME/grokgo/prompt-lab/cc-fable-resume-dangerous.sh

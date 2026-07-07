@@ -3,15 +3,15 @@
 target: fable-trace RAG: which exemplars actually help, retrieval quality
 
 Traceback (most recent call last):
-  File "/Users/rentamac/grokgo/spikes/openclaude-local/badass-fable.py", line 117, in <module>
+  File "$HOME/grokgo/spikes/openclaude-local/badass-fable.py", line 117, in <module>
     main()
     ~~~~^^
-  File "/Users/rentamac/grokgo/spikes/openclaude-local/badass-fable.py", line 93, in main
+  File "$HOME/grokgo/spikes/openclaude-local/badass-fable.py", line 93, in main
     print(chat(messages))
           ~~~~^^^^^^^^^^
-  File "/Users/rentamac/grokgo/spikes/openclaude-local/badass-fable.py", line 78, in chat
+  File "$HOME/grokgo/spikes/openclaude-local/badass-fable.py", line 78, in chat
     return chat_http(messages, timeout=timeout)
-  File "/Users/rentamac/grokgo/spikes/openclaude-local/badass-fable.py", line 47, in chat_http
+  File "$HOME/grokgo/spikes/openclaude-local/badass-fable.py", line 47, in chat_http
     with urllib.request.urlopen(req, timeout=timeout) as r:
          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 187, in urlopen
