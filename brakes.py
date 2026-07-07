@@ -4,13 +4,15 @@ Every paid call goes through check() BEFORE and log() AFTER. No exceptions.
 Brakes implemented:
   1. KILLSWITCH file        -> everything stops (touch $GROKGO_ROOT/KILLSWITCH)
   2. Per-task max_turns     -> runaway task dies
-  3. Loop detection         -> same (task_id, input-hash) seen twice = spinning
+  3. Loop detection         -> same (task_id, input-hash) seen twice = spinning;
+                               stale hashes expire and failed calls are retryable
   4. Per-lane daily budget  -> 80% downgrades one tier, 100% halts the lane
   5. Halt-on-no-work        -> two consecutive empty outputs parks the lane
                                until a task file NEWER than the park flag arrives
 Ledger: every call logged to SQLite (lane, model, tokens, est. cost, status).
 """
 import hashlib
+import fcntl
 import json
 import os
 import pathlib
@@ -23,6 +25,8 @@ KILLSWITCH = ROOT / "KILLSWITCH"
 PARKED = ROOT / "parked"
 RECEIPTS = ROOT / "receipts"
 TIER_ORDER = ["t1", "t2", "t3", "t4"]
+DEFAULT_SEEN_HASH_TTL_SECONDS = 24 * 60 * 60
+DEFAULT_UNKNOWN_PRICE_PER_MTOK = [15, 75]
 
 
 def _json_text(value, fallback):
@@ -71,9 +75,49 @@ def _input_hash(task: dict) -> str:
     return hashlib.sha256(blob.encode()).hexdigest()[:16]
 
 
-def spend_today(lane: str) -> float:
+def _seen_hash_ttl(cfg: dict) -> int:
+    defaults = cfg.get("defaults", {})
+    return int(defaults.get("seen_hash_ttl_seconds", DEFAULT_SEEN_HASH_TTL_SECONDS))
+
+
+def _prune_seen_hashes(con, cfg: dict, now: float):
+    ttl = _seen_hash_ttl(cfg)
+    if ttl <= 0:
+        return
+    con.execute("DELETE FROM seen_hashes WHERE ts < ?", (now - ttl,))
+
+
+def _price_for_model(model: str, cfg: dict):
+    prices_cfg = cfg.get("prices_per_mtok", {})
+    prices = prices_cfg.get(model)
+    if prices is not None:
+        return prices, ""
+    fallback = cfg.get("unknown_model_price_per_mtok")
+    if fallback is None and prices_cfg:
+        fallback = max(
+            prices_cfg.values(),
+            key=lambda pair: (float(pair[0]) + float(pair[1])),
+        )
+    fallback = fallback or DEFAULT_UNKNOWN_PRICE_PER_MTOK
+    return fallback, f"unknown model '{model}' priced at punitive fallback {fallback}"
+
+
+def _budget_day_start(now: float, cfg: dict | None = None) -> float:
+    """Return the last configured budget reset boundary.
+
+    Default is UTC midnight. Set defaults.budget_day_start_hour_utc to make the
+    reset boundary explicit without changing the existing default.
+    """
+    defaults = (cfg or {}).get("defaults", {})
+    start_hour = int(defaults.get("budget_day_start_hour_utc", 0)) % 24
+    offset = start_hour * 3600
+    shifted = now - offset
+    return shifted - (shifted % 86400) + offset
+
+
+def spend_today(lane: str, cfg: dict | None = None) -> float:
     con = _db()
-    day_start = time.time() - (time.time() % 86400)
+    day_start = _budget_day_start(time.time(), cfg)
     row = con.execute(
         "SELECT COALESCE(SUM(cost_usd),0) FROM calls WHERE lane=? AND ts>=?",
         (lane, day_start),
@@ -124,7 +168,7 @@ def check(task: dict, tier: str, lane: str, cfg: dict, task_path=None):
             spent_task = spend_task(task.get("id", "?"))
             if spent_task >= float(task_budget):
                 return False, tier, f"task budget hit (${spent_task:.2f}/${float(task_budget):.2f})"
-        spent, budget = spend_today(lane), _budget(lane, cfg)
+        spent, budget = spend_today(lane, cfg), _budget(lane, cfg)
         if spent >= budget:
             return False, tier, f"daily budget hit (${spent:.2f}/${budget:.2f})"
         if spent >= 0.8 * budget and tier in TIER_ORDER:
@@ -133,11 +177,13 @@ def check(task: dict, tier: str, lane: str, cfg: dict, task_path=None):
             reason = "80% budget -> downgraded one tier"
 
     con = _db()
+    now = time.time()
+    _prune_seen_hashes(con, cfg, now)
     h = _input_hash(task)
     try:
         con.execute(
             "INSERT INTO seen_hashes VALUES (?,?,?)",
-            (task.get("id", "?"), h, time.time()),
+            (task.get("id", "?"), h, now),
         )
         con.commit()
     except sqlite3.IntegrityError:
@@ -164,8 +210,9 @@ def log(
     trace_id="",
     parent_trace_id="",
 ):
-    prices = cfg.get("prices_per_mtok", {}).get(model, [0, 0])
-    cost = (tok_in / 1e6) * prices[0] + (tok_out / 1e6) * prices[1]
+    prices, pricing_warning = _price_for_model(model, cfg)
+    price_in, price_out = float(prices[0]), float(prices[1])
+    cost = (tok_in / 1e6) * price_in + (tok_out / 1e6) * price_out
     ts = time.time()
     trace_id = str(trace_id or task.get("trace_id") or task.get("correlation_id") or task.get("id", "?"))
     parent_trace_id = str(parent_trace_id or task.get("parent_trace_id") or "")
@@ -204,10 +251,18 @@ def log(
         "tool_calls": tool_calls,
         "decision": decision,
     }
+    if pricing_warning:
+        receipt["pricing_warning"] = pricing_warning
     with receipt_path.open("a") as f:
         f.write(_json_text(receipt, {"receipt_error": "unserializable"}) + "\n")
 
     con = _db()
+    status_l = str(status).lower()
+    if "fail" in status_l or "error" in status_l:
+        con.execute(
+            "DELETE FROM seen_hashes WHERE task_id=? AND input_hash=?",
+            (task.get("id", "?"), input_hash),
+        )
     con.execute(
         """INSERT INTO calls(
             ts, lane, task_id, task_type, tier, model, tokens_in, tokens_out,
@@ -228,15 +283,30 @@ def log(
     return cost, str(receipt_path)
 
 
+def _atomic_write_text(path: pathlib.Path, text: str):
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.{time.time_ns()}.tmp")
+    tmp.write_text(text)
+    os.replace(tmp, path)
+
+
 def note_work(lane: str, produced_output: bool):
     """Two consecutive empty outputs -> park the lane (woken by newer task files)."""
     PARKED.mkdir(parents=True, exist_ok=True)
     streak = PARKED / f".streak_{lane}"
-    if produced_output:
-        streak.unlink(missing_ok=True)
-        return
-    n = int(streak.read_text()) + 1 if streak.exists() else 1
-    streak.write_text(str(n))
-    if n >= 2:
-        (PARKED / lane).touch()
-        streak.unlink(missing_ok=True)
+    lock = PARKED / f".streak_{lane}.lock"
+    with lock.open("w") as lock_file:
+        fcntl.flock(lock_file, fcntl.LOCK_EX)
+        try:
+            if produced_output:
+                streak.unlink(missing_ok=True)
+                return
+            try:
+                n = int(streak.read_text().strip() or "0") + 1 if streak.exists() else 1
+            except ValueError:
+                n = 1
+            _atomic_write_text(streak, str(n))
+            if n >= 2:
+                (PARKED / lane).touch()
+                streak.unlink(missing_ok=True)
+        finally:
+            fcntl.flock(lock_file, fcntl.LOCK_UN)
