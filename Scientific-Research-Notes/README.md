@@ -2,7 +2,7 @@
 
 Git-safe scientific research notes for the Digital Organism.
 
-Private/raw inputs remain in `/Users/rentamac/agent-comms`. This folder is for sanitized summaries, source maps, hypotheses, templates, and explainer material that can be versioned with Grok Go.
+Private/raw inputs remain outside this public snapshot. This folder is for sanitized summaries, source maps, hypotheses, templates, and explainer material that can be versioned with Grok Go.
 
 Sections:
 
@@ -15,4 +15,3 @@ Sections:
 - `Templates/` - reusable research note, hypothesis, contribution, and checklist templates.
 
 Rule: evidence labels are mandatory. Do not mix speculative material with established science without clearly marking it.
-

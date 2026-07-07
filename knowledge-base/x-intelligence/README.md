@@ -2,7 +2,7 @@
 
 Git-safe summaries for Jeff's X Intelligence + Second Brain system.
 
-Private/raw material stays in `/Users/rentamac/agent-comms`. This folder is for sanitized, reusable summaries that can be versioned with Grok Go.
+Private/raw material stays outside this public snapshot. This folder is for sanitized, reusable summaries that can be versioned with Grok Go.
 
 Sections:
 
@@ -12,4 +12,3 @@ Sections:
 - `drafts/` - draft post/comment candidates.
 - `verdicts/` - Jeff approve/edit/kill and performance summaries.
 - `science/` - Michael Levin and adjacent science explainers.
-
