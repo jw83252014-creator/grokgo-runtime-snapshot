@@ -107,6 +107,50 @@ def is_empty(out):
     return out in ([], {}, None) or out == {"action": "none"}
 
 
+def _compact_text(value, max_chars=700):
+    if value in (None, ""):
+        return ""
+    if isinstance(value, str):
+        text = value
+    else:
+        try:
+            text = json.dumps(value, sort_keys=True)
+        except (TypeError, ValueError):
+            text = str(value)
+    text = " ".join(text.split())
+    if len(text) > max_chars:
+        return text[: max_chars - 1] + "..."
+    return text
+
+
+def summarize_output(out, raw_text=""):
+    """Create the receipt summary that behavioral markers can classify.
+
+    This is deliberately deterministic and cheap. Rich cells should still
+    return their own `output_summary`; this is the dispatch fallback when they
+    do not.
+    """
+    if out is None:
+        return "Model response failed JSON schema validation."
+    if isinstance(out, dict):
+        for key in (
+            "output_summary",
+            "summary",
+            "result_summary",
+            "recommendation",
+            "verdict",
+            "action",
+            "status",
+        ):
+            if out.get(key) not in (None, "", [], {}):
+                return _compact_text(out.get(key))
+        keys = ", ".join(sorted(out.keys()))
+        return f"Valid JSON output with keys: {keys}" if keys else "Valid empty JSON output."
+    if isinstance(out, list):
+        return f"Valid JSON list output with {len(out)} item(s)."
+    return _compact_text(out if out is not None else raw_text)
+
+
 def ensure_trace(task):
     trace_id = task.get("trace_id") or task.get("correlation_id") or uuid.uuid4().hex
     task["trace_id"] = str(trace_id)
@@ -160,9 +204,12 @@ def process(task_path: pathlib.Path, dry=False):
         decision = {
             "output_keys": sorted(out.keys()) if isinstance(out, dict) else [],
             "empty_output": is_empty(out),
+            "output_summary": summarize_output(out, text),
         }
+        receipt_task = dict(task)
+        receipt_task.setdefault("output_summary", decision["output_summary"])
         cost, receipt_path = brakes.log(
-            lane, task, tier, model, tin, tout, status, c,
+            lane, receipt_task, tier, model, tin, tout, status, c,
             duration_ms=int((time.time() - started) * 1000),
             output_ref=output_ref,
             decision=decision,

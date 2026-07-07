@@ -98,6 +98,8 @@ Required fields for meaningful action receipts:
 
 If a caller can tag the action honestly, pass `new_capability_vs_polish` on the task. If not, `brakes.py` self-tags from `output_summary`, artifact metadata, handoff metadata, and status. Do not use an LLM in the hot path for this classification; sampled cheap-model calibration can audit the rules later.
 
+`dispatch.py` supplies a deterministic `output_summary` fallback from strict JSON outputs before calling `brakes.log()`. Cells should still emit their own `output_summary` when they can do better; the fallback is only to prevent thin receipts.
+
 ## Current Priority Threads
 
 - X Radar / Mining Engine: use cheap oEmbed/text ingest first, Jade/GLM S1 scoring, then Fable only for borderline or reputation-sensitive calls.
