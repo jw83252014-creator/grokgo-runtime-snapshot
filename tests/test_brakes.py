@@ -81,6 +81,85 @@ class BrakesTest(unittest.TestCase):
         self.assertEqual(receipt["cost_usd"], 15)
         self.assertIn("unknown model", receipt["pricing_warning"])
 
+    def test_receipt_v2_records_summary_tokens_and_new_capability_tag(self):
+        cfg = {"prices_per_mtok": {"known-model": [1, 1]}}
+        task = {
+            "id": "schema-me",
+            "type": "runtime.instrumentation",
+            "input": {"x": 1},
+            "output_summary": "Implemented action receipt v2 fields for richer measurement.",
+            "artifact_created": "brakes.py",
+        }
+
+        _, receipt_path = self.brakes.log(
+            "test", task, "t2", "known-model", 11, 13, "success", cfg
+        )
+
+        with open(receipt_path) as f:
+            receipt = json.loads(f.read().strip())
+        self.assertEqual(receipt["schema_version"], "grokgo.action_receipt.v2")
+        self.assertEqual(receipt["outcome"], "success")
+        self.assertEqual(receipt["output_summary"], task["output_summary"])
+        self.assertEqual(receipt["tokens"], {"input": 11, "output": 13, "total": 24})
+        self.assertEqual(receipt["new_capability_vs_polish"], "new_capability")
+        self.assertIn("new_capability", receipt["behavior_rule_hits"])
+
+        con = sqlite3.connect(self.root / "ledger.db")
+        row = con.execute(
+            """SELECT schema_version, outcome, output_summary, tokens_total,
+                      new_capability_vs_polish
+               FROM calls WHERE task_id=?""",
+            ("schema-me",),
+        ).fetchone()
+        con.close()
+        self.assertEqual(
+            row,
+            (
+                "grokgo.action_receipt.v2",
+                "success",
+                task["output_summary"],
+                24,
+                "new_capability",
+            ),
+        )
+
+    def test_receipt_v2_detects_polish_from_output_summary(self):
+        cfg = {"prices_per_mtok": {"known-model": [1, 1]}}
+        task = {
+            "id": "polish-me",
+            "type": "runtime.cleanup",
+            "input": {"x": 1},
+            "output_summary": "Refactored comments, formatting, and minor wording only.",
+        }
+
+        _, receipt_path = self.brakes.log(
+            "test", task, "t2", "known-model", 10, 10, "success", cfg
+        )
+
+        with open(receipt_path) as f:
+            receipt = json.loads(f.read().strip())
+        self.assertEqual(receipt["new_capability_vs_polish"], "polish")
+        self.assertIn("refactor_only", receipt["behavior_rule_hits"])
+
+    def test_receipt_v2_honors_caller_supplied_behavior_class(self):
+        cfg = {"prices_per_mtok": {"known-model": [1, 1]}}
+        task = {
+            "id": "tagged-me",
+            "type": "runtime.watchdog",
+            "input": {"x": 1},
+            "output_summary": "Created a new file, but caller knows this was a health check.",
+            "new_capability_vs_polish": "maintenance",
+        }
+
+        _, receipt_path = self.brakes.log(
+            "test", task, "t2", "known-model", 10, 10, "success", cfg
+        )
+
+        with open(receipt_path) as f:
+            receipt = json.loads(f.read().strip())
+        self.assertEqual(receipt["new_capability_vs_polish"], "maintenance")
+        self.assertEqual(receipt["behavior_rule_hits"], ["caller_supplied"])
+
     def test_budget_day_start_hour_utc_is_configurable(self):
         noon_utc_day_two = 2 * 86400 + 12 * 3600
         cfg = {"defaults": {"budget_day_start_hour_utc": 12}}

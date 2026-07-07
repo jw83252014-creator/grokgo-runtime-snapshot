@@ -83,6 +83,21 @@ Use receipts for anything meaningful. Redact secrets before quoting. Do not put 
 - `defaults.budget_day_start_hour_utc` in `routing.yaml` can set an explicit UTC reset hour.
 - `BRAKES_TZ_OFFSET_HOURS` overrides that with a fixed local-midnight offset, e.g. `-8` for UTC-8. Keep this fixed-offset and explicit for deterministic ledgers.
 
+## Action Receipt v2
+
+`brakes.log()` emits `schema_version: grokgo.action_receipt.v2` in every JSONL receipt. This is the instrumentation gate for behavioral-marker science: old Grok unified logs are useful as a thin baseline, but future polishing-loop claims must come from these richer receipts.
+
+Required fields for meaningful action receipts:
+
+- `task_type`: stable task/category label.
+- `outcome`: normalized `success`, `partial`, `failure`, or a short explicit status.
+- `output_summary`: concise summary of what changed or what was produced.
+- `tokens`: object with `input`, `output`, and `total`.
+- `new_capability_vs_polish`: deterministic behavior tag. Valid values: `new_capability`, `polish`, `maintenance`, `correction`, `cooperation`, `unknown`.
+- `behavior_rule_hits`: deterministic rule names that explain the tag, or `caller_supplied` when the task provided the tag.
+
+If a caller can tag the action honestly, pass `new_capability_vs_polish` on the task. If not, `brakes.py` self-tags from `output_summary`, artifact metadata, handoff metadata, and status. Do not use an LLM in the hot path for this classification; sampled cheap-model calibration can audit the rules later.
+
 ## Current Priority Threads
 
 - X Radar / Mining Engine: use cheap oEmbed/text ingest first, Jade/GLM S1 scoring, then Fable only for borderline or reputation-sensitive calls.

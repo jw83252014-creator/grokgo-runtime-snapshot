@@ -75,6 +75,7 @@ _TEXT_KEYS = (
     "message",
     "msg",
     "output",
+    "output_summary",
     "prompt",
     "summary",
     "reasoning",
@@ -85,6 +86,9 @@ _TEXT_KEYS = (
     "result",
     "stdout",
     "notes",
+    "outcome",
+    "behavior_class",
+    "new_capability_vs_polish",
 )
 _TS_KEYS = ("ts", "timestamp", "time", "created_at")
 _CYCLE_KEYS = ("cycle", "cycle_id", "turn", "step", "iteration", "loop_index")
@@ -152,6 +156,8 @@ def normalize_entry(raw: dict, line_no: int) -> LogEntry:
     tok = _first(raw, _TOKEN_KEYS, None)
     if tok is None:
         tok = _first(ctx, _TOKEN_KEYS, 0)
+    if isinstance(tok, dict):
+        tok = tok.get("total", tok.get("input", 0) + tok.get("output", 0))
     try:
         e.tokens = int(tok)
     except (ValueError, TypeError):
@@ -161,11 +167,27 @@ def normalize_entry(raw: dict, line_no: int) -> LogEntry:
     e.kind = str(_first(raw, _KIND_KEYS, "")).lower()
 
     base_text = _coerce_text(_first(raw, _TEXT_KEYS, ""))
+    supplements = []
+    for source in (raw, ctx):
+        for key in (
+            "task_type",
+            "outcome",
+            "output_summary",
+            "behavior_class",
+            "new_capability_vs_polish",
+            "status",
+        ):
+            value = source.get(key) if isinstance(source, dict) else None
+            if value in (None, ""):
+                continue
+            text = _coerce_text(value)
+            if text and text not in base_text:
+                supplements.append(f"{key}: {text}")
     if ctx:
         ctx_text = json.dumps(ctx, sort_keys=True)[:1200]
-        e.text = f"{base_text} {ctx_text}".strip()
+        e.text = f"{base_text} {' '.join(supplements)} {ctx_text}".strip()
     else:
-        e.text = base_text
+        e.text = f"{base_text} {' '.join(supplements)}".strip()
     return e
 
 

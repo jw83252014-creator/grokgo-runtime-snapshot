@@ -16,6 +16,7 @@ import fcntl
 import json
 import os
 import pathlib
+import re
 import sqlite3
 import time
 
@@ -27,6 +28,79 @@ RECEIPTS = ROOT / "receipts"
 TIER_ORDER = ["t1", "t2", "t3", "t4"]
 DEFAULT_SEEN_HASH_TTL_SECONDS = 24 * 60 * 60
 DEFAULT_UNKNOWN_PRICE_PER_MTOK = [15, 75]
+RECEIPT_SCHEMA_VERSION = "grokgo.action_receipt.v2"
+BEHAVIOR_CLASSES = {
+    "new_capability",
+    "polish",
+    "maintenance",
+    "correction",
+    "cooperation",
+    "unknown",
+}
+_BEHAVIOR_RULES = (
+    (
+        "new_file",
+        "new_capability",
+        re.compile(r"\b(creat(e|ed|ing)|wrote|writing) (a )?(new )?(file|module|script|cell|endpoint|test)\b", re.I),
+        2.0,
+    ),
+    (
+        "new_capability",
+        "new_capability",
+        re.compile(r"\b(implement(ed|ing)?|built|adding support for|integrat(ed|ing)|deployed|shipped|merged)\b", re.I),
+        1.5,
+    ),
+    (
+        "external_output",
+        "new_capability",
+        re.compile(r"\b(publish(ed|ing)?|submitt(ed|ing)|sent (the )?(report|paper|snapshot)|artifact created)\b", re.I),
+        1.2,
+    ),
+    (
+        "refactor_only",
+        "polish",
+        re.compile(r"\b(refactor(ed|ing)?|clean(ed|ing)? up|tid(y|ied|ying)|reorganiz(ed|ing))\b", re.I),
+        2.0,
+    ),
+    (
+        "cosmetic",
+        "polish",
+        re.compile(r"\b(rename[d]?|reword(ed|ing)?|formatt(ed|ing)|whitespace|typo[s]?|docstring|minor (tweak|change|update)|polish(ed|ing)?)\b", re.I),
+        1.5,
+    ),
+    (
+        "summary_of_summary",
+        "polish",
+        re.compile(r"\bsummar(y|ize[d]?) of (the |my )?(previous |earlier |last )?(summary|report|notes)\b", re.I),
+        2.5,
+    ),
+    (
+        "error_detected",
+        "correction",
+        re.compile(r"\b(error|exception|traceback|failed|failure|bug|incorrect|wrong|mistake|root cause|retry|revert(ed|ing)?|fix(ed|ing) by)\b", re.I),
+        1.5,
+    ),
+    (
+        "handoff",
+        "cooperation",
+        re.compile(r"\b(hand(ed|ing)? (off|over) to|delegat(ed|ing) to|passing to|requested from|read(ing)? .* (cell|agent)'?s? output)\b", re.I),
+        1.5,
+    ),
+    (
+        "health_check",
+        "maintenance",
+        re.compile(r"\b(health check|heartbeat|watchdog|credit (check|balance)|usage check|sleep(ing)?|waiting for|log rotation|backup)\b", re.I),
+        1.2,
+    ),
+)
+_BEHAVIOR_TIE_ORDER = {
+    "new_capability": 0,
+    "correction": 1,
+    "cooperation": 2,
+    "polish": 3,
+    "maintenance": 4,
+    "unknown": 5,
+}
 
 
 def _json_text(value, fallback):
@@ -34,6 +108,108 @@ def _json_text(value, fallback):
         return json.dumps(value, sort_keys=True, ensure_ascii=True)
     except (TypeError, ValueError):
         return json.dumps(fallback, sort_keys=True, ensure_ascii=True)
+
+
+def _compact_text(value, max_chars=700):
+    if value in (None, ""):
+        return ""
+    if isinstance(value, str):
+        text = value
+    else:
+        try:
+            text = json.dumps(value, sort_keys=True, ensure_ascii=True)
+        except (TypeError, ValueError):
+            text = str(value)
+    text = " ".join(text.split())
+    if len(text) > max_chars:
+        return text[: max_chars - 1] + "..."
+    return text
+
+
+def _normalize_behavior_class(value: str) -> str:
+    normalized = str(value or "").strip().lower().replace("-", "_").replace(" ", "_")
+    aliases = {
+        "goal": "new_capability",
+        "goal_directed": "new_capability",
+        "new": "new_capability",
+        "capability": "new_capability",
+        "polishing": "polish",
+        "self_correction": "correction",
+        "handoff": "cooperation",
+    }
+    normalized = aliases.get(normalized, normalized)
+    return normalized if normalized in BEHAVIOR_CLASSES else ""
+
+
+def _receipt_outcome(task: dict, status: str) -> str:
+    raw = str(task.get("outcome") or status or "").strip().lower()
+    if not raw:
+        return "unknown"
+    if any(word in raw for word in ("fail", "error", "exception")):
+        return "failure"
+    if any(word in raw for word in ("partial", "blocked", "skipped")):
+        return "partial"
+    if any(word in raw for word in ("success", "ok", "done", "complete")):
+        return "success"
+    return raw[:80]
+
+
+def _output_summary(task: dict, decision, output_ref: str) -> str:
+    for key in ("output_summary", "summary", "result_summary", "outcome_summary"):
+        if task.get(key):
+            return _compact_text(task.get(key))
+    if isinstance(decision, dict):
+        for key in ("output_summary", "summary", "result", "rationale"):
+            if decision.get(key):
+                return _compact_text(decision.get(key))
+    if task.get("artifact_created") and output_ref:
+        return _compact_text(f"Artifact created: {task.get('artifact_created')}")
+    return ""
+
+
+def _behavior_source_text(task, status, output_summary, output_ref, tool_calls, decision):
+    parts = [
+        task.get("type", ""),
+        task.get("title", ""),
+        task.get("name", ""),
+        status,
+        output_summary,
+        task.get("artifact_created", ""),
+        _compact_text(tool_calls, 400),
+        _compact_text(decision, 600),
+    ]
+    if output_ref:
+        parts.append(pathlib.Path(str(output_ref)).name)
+    return " ".join(str(part) for part in parts if part)
+
+
+def _classify_behavior(task, status, output_summary, output_ref, tool_calls, decision):
+    supplied = _normalize_behavior_class(
+        task.get("new_capability_vs_polish") or task.get("behavior_class") or ""
+    )
+    if supplied:
+        return supplied, ["caller_supplied"]
+
+    text = _behavior_source_text(task, status, output_summary, output_ref, tool_calls, decision)
+    scores = {name: 0.0 for name in BEHAVIOR_CLASSES}
+    hits = []
+    if task.get("artifact_created"):
+        scores["new_capability"] += 1.0
+        hits.append("artifact_created")
+    if int(task.get("downstream_task_count", 0) or 0) > 0:
+        scores["cooperation"] += 0.8
+        hits.append("downstream_task_count")
+    for name, behavior_class, pattern, weight in _BEHAVIOR_RULES:
+        if pattern.search(text):
+            scores[behavior_class] += weight
+            hits.append(name)
+    winner, score = sorted(
+        scores.items(),
+        key=lambda item: (-item[1], _BEHAVIOR_TIE_ORDER.get(item[0], 99)),
+    )[0]
+    if score <= 0:
+        return "unknown", []
+    return winner, hits
 
 
 def _db():
@@ -59,6 +235,13 @@ def _db():
         "input_refs_json": "TEXT DEFAULT '[]'",
         "tool_calls_json": "TEXT DEFAULT '[]'",
         "decision_json": "TEXT DEFAULT '{}'",
+        "schema_version": "TEXT DEFAULT ''",
+        "outcome": "TEXT DEFAULT ''",
+        "output_summary": "TEXT DEFAULT ''",
+        "tokens_total": "INT DEFAULT 0",
+        "behavior_class": "TEXT DEFAULT ''",
+        "new_capability_vs_polish": "TEXT DEFAULT ''",
+        "behavior_rule_hits_json": "TEXT DEFAULT '[]'",
     }.items():
         if name not in cols:
             con.execute(f"ALTER TABLE calls ADD COLUMN {name} {ddl}")
@@ -232,16 +415,34 @@ def log(
     input_refs_json = _json_text(input_refs, [])
     tool_calls_json = _json_text(tool_calls, [])
     decision_json = _json_text(decision, {})
+    outcome = _receipt_outcome(task, status)
+    output_summary = _output_summary(task, decision, output_ref)
+    behavior_class, behavior_rule_hits = _classify_behavior(
+        task, status, output_summary, output_ref, tool_calls, decision
+    )
+    behavior_rule_hits_json = _json_text(behavior_rule_hits, [])
+    tokens_total = int(tok_in or 0) + int(tok_out or 0)
 
     RECEIPTS.mkdir(parents=True, exist_ok=True)
     receipt_path = RECEIPTS / f"calls-{time.strftime('%Y%m%d', time.gmtime(ts))}.jsonl"
     receipt = {
+        "schema_version": RECEIPT_SCHEMA_VERSION,
         "ts": ts,
         "trace_id": trace_id,
         "parent_trace_id": parent_trace_id,
         "lane": lane,
         "task_id": task.get("id", "?"),
         "task_type": task.get("type", "?"),
+        "outcome": outcome,
+        "output_summary": output_summary,
+        "tokens": {
+            "input": int(tok_in or 0),
+            "output": int(tok_out or 0),
+            "total": tokens_total,
+        },
+        "new_capability_vs_polish": behavior_class,
+        "behavior_class": behavior_class,
+        "behavior_rule_hits": behavior_rule_hits,
         "tier": tier,
         "model": model,
         "status": status,
@@ -275,15 +476,18 @@ def log(
             ts, lane, task_id, task_type, tier, model, tokens_in, tokens_out,
             cost_usd, status, why_fable, artifact_created, downstream_task_count,
             trace_id, parent_trace_id, duration_ms, receipt_path, input_refs_json,
-            tool_calls_json, decision_json
-        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+            tool_calls_json, decision_json, schema_version, outcome, output_summary,
+            tokens_total, behavior_class, new_capability_vs_polish, behavior_rule_hits_json
+        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
         (ts, lane, task.get("id", "?"), task.get("type", "?"),
          tier, model, tok_in, tok_out, cost, status,
          task.get("why_fable") or task.get("why") or "",
          task.get("artifact_created", ""),
          int(task.get("downstream_task_count", 0) or 0),
          trace_id, parent_trace_id, int(duration_ms or 0), str(receipt_path),
-         input_refs_json, tool_calls_json, decision_json),
+         input_refs_json, tool_calls_json, decision_json,
+         RECEIPT_SCHEMA_VERSION, outcome, output_summary, tokens_total,
+         behavior_class, behavior_class, behavior_rule_hits_json),
     )
     con.commit()
     con.close()
