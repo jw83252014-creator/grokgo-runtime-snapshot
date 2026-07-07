@@ -1,0 +1,16 @@
+@tibo — Codex desktop edge case from building a local agent workstation:
+
+I own multiple ChatGPT accounts + Apple IDs. When one runs out of credits I want to switch accounts but keep the same Codex work alive on my Mac mini.
+
+The work IS local (~/.codex, agent-bridge logs) — but the visible Codex chats/sidebar feel tied to the signed-in account. ChatGPT web has account switching; Codex desktop/mobile don't have durable multi-account workspace continuity yet.
+
+What'd help:
+- prove multiple accounts are mine
+- bind them to one local Codex workspace
+- keep local threads visible across account switches
+- show active billing/identity clearly
+- durable iPhone reconnect to the same Mac workspace
+
+Not account sharing — owned-account continuity for builders running long-lived local agents.
+
+Workaround I already built: a Mac-owned continuity lane — local state + bridge logs + a Tailscale phone link + auto-failover that rotates my accounts when one runs dry. Works, but it should be native.

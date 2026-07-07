@@ -1,0 +1,571 @@
+# research.loop — improvement candidates (append-only)
+
+- [2026-06-16T15:51:14Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T15:53:57Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T16:03:29Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T16:04:44Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T16:27:46Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-16T16:50:47Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-16T17:13:49Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-16T17:36:51Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-16T17:59:52Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-16T18:22:54Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T18:45:22Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-16T19:08:23Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-16T19:31:25Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-16T19:54:27Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-16T20:17:28Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-16T20:40:30Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T21:03:04Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-16T21:26:08Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-16T21:48:30Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-16T22:11:31Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-16T22:34:33Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-16T22:57:35Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-16T23:20:36Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-16T23:43:38Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T00:06:40Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T00:29:42Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T00:52:43Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T01:15:45Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T01:38:47Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T02:01:48Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T02:24:51Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T02:47:52Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T03:10:54Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T03:33:55Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T03:56:57Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T04:19:59Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T04:43:01Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T05:06:02Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T05:29:04Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T05:50:04Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T06:13:05Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T06:36:07Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T06:59:08Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T07:22:10Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T07:45:12Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T08:08:13Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T08:31:16Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T08:54:17Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T09:17:19Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T09:40:07Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T10:03:09Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T10:26:09Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T10:49:11Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T11:10:04Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-17T11:30:55Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T11:53:57Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T12:16:58Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T12:40:00Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T13:03:02Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T13:25:28Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-17T13:48:30Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T14:10:23Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T14:33:09Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T14:56:11Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T15:17:49Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-17T15:40:35Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-17T16:03:37Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T16:26:38Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T16:48:08Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T17:09:48Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T17:32:00Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-17T17:55:01Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T18:16:25Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T18:37:16Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T18:58:48Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T19:21:17Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T19:44:18Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T20:07:21Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T20:29:57Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T20:51:30Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T21:14:32Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T21:37:34Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-17T22:00:36Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-17T22:23:38Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-17T22:46:39Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-17T23:09:41Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-17T23:32:43Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-17T23:55:45Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T00:18:46Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-18T00:41:48Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-18T01:04:50Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T01:27:52Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T01:50:05Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T02:11:42Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T02:33:16Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T02:54:23Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-18T03:17:25Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T03:38:24Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T04:00:53Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T04:22:37Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T04:43:43Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T05:05:46Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-18T05:28:48Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T05:51:49Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T06:14:07Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T06:35:46Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T06:57:12Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T07:20:14Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-18T07:42:29Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T08:03:44Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T08:25:55Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T08:47:29Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T09:08:46Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T09:29:21Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-18T09:52:05Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T10:13:32Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T10:34:43Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T10:57:45Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T11:19:49Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T11:40:35Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-18T12:02:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T12:25:47Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T12:46:36Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T13:09:38Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T13:32:40Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-18T13:55:41Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-18T14:18:43Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T14:41:45Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T15:04:47Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T15:27:49Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T15:50:51Z] (fable-trace-RAG:-which-exemplars-actuall) (see receipt)
+- [2026-06-18T16:13:53Z] (harness-techniques-worth-stealing-from-t) (see receipt)
+- [2026-06-18T16:36:38Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T16:59:44Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T17:22:46Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T17:44:47Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T18:06:18Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T18:28:26Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-18T18:51:04Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T19:13:29Z] (cheaper-faster-local-inference) (see receipt)
+- [2026-06-18T19:35:04Z] (QLoRA-on-the-traces:-what-to-expect,-how) (see receipt)
+- [2026-06-18T19:58:05Z] (better-local-models-for-the-cheap-lane) (see receipt)
+- [2026-06-18T20:19:27Z] (fable-trace-RAG:-which-exemplars-actuall) Create a `research/loop/2023-10-27-fable-trace-rag.md` file manually, then paste the *actual* findings from your logs here so I can tag them and propose the next step.
+- [2026-06-18T20:41:37Z] (harness-techniques-worth-stealing-from-t) Audit our current `src/` tool registry against the top 3 open-agent frameworks (LangChain, CrewAI, AutoGen) to identify which architectural patterns (e.g., tool-calling schemas, state management) are missing or misaligned, then draft a "local-agent-patterns.md" proposal for Jeff to review before implementation.
+- [2026-06-18T21:01:59Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T21:22:35Z] (cheaper-faster-local-inference) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-18T22:20:00Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-18T22:35:36Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-18T22:51:07Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-18T23:06:19Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-18T23:21:54Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-18T23:37:29Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-18T23:53:04Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T00:08:39Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T00:24:10Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T00:39:22Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T00:54:57Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T01:10:33Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T01:26:10Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T01:41:45Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T01:57:16Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T02:12:31Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T02:28:07Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T02:43:45Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T02:59:22Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T03:14:58Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T03:30:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T03:45:46Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T04:01:20Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T04:16:55Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T04:32:29Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T04:48:03Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T05:03:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T05:18:52Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T05:34:26Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T05:50:00Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T06:05:47Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T06:21:21Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T06:36:51Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T06:52:03Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T07:07:39Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T07:23:13Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T07:38:52Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T07:54:44Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T08:10:24Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T08:25:36Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T08:41:11Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T08:56:57Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T09:12:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T09:28:04Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T09:43:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T09:58:58Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T10:14:34Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T10:30:09Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T10:45:43Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T11:01:25Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T11:16:57Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T11:32:21Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T11:47:54Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T12:03:28Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T12:19:02Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T12:34:36Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T12:50:21Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T13:05:33Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T13:21:06Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T13:36:43Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T13:52:22Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T14:07:57Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T14:23:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T14:38:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T14:54:19Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T15:10:08Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T15:25:43Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T15:41:17Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T15:57:01Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T16:12:12Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T16:27:49Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T16:43:25Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T16:59:03Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T17:14:39Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T17:30:27Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T17:45:39Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T18:01:16Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T18:16:53Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T18:32:27Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T18:48:02Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T19:03:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T19:18:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T19:34:21Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T19:50:04Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T20:05:38Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T20:21:12Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T20:36:55Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T20:52:07Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T21:07:41Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T21:23:31Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T21:39:05Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T21:54:39Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T22:10:11Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T22:25:22Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-19T22:40:57Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T22:56:31Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T23:12:04Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-19T23:27:41Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T23:43:15Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-19T23:58:28Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T00:14:05Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T00:29:40Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T00:45:15Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T01:00:52Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T01:16:24Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T01:31:36Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T01:47:10Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T02:02:45Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T02:18:20Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T02:33:54Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T02:49:25Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T03:04:37Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T03:20:12Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T03:35:47Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T03:51:22Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T04:06:56Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T04:22:29Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T04:37:41Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T04:53:16Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T05:08:51Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T05:24:25Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T05:40:00Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T05:55:31Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T06:10:43Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T06:26:17Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T06:41:52Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T06:57:26Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T07:13:03Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T07:28:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T07:43:46Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T07:59:20Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T08:14:55Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T08:30:30Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T08:46:04Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T09:01:35Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T09:16:48Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T09:32:22Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T09:47:56Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T10:03:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T10:19:05Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T10:34:36Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T10:49:48Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T11:05:22Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T11:20:57Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T11:36:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T11:52:06Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T12:07:36Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T12:22:47Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T12:38:22Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T12:53:56Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T13:09:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T13:25:05Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T13:40:36Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T13:55:48Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T14:11:23Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T14:26:57Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T14:42:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T14:58:04Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T15:13:35Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T15:28:47Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T15:44:22Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T15:59:55Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T16:15:29Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T16:31:03Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T16:46:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T17:01:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T17:17:19Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T17:32:53Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T17:48:28Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T18:04:02Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T18:19:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T18:34:44Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T18:50:19Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T19:05:53Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T19:21:27Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T19:37:02Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T19:52:31Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T20:07:43Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T20:23:16Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T20:38:53Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T20:54:29Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T21:10:03Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T21:25:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T21:40:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T21:56:20Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T22:11:55Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T22:27:29Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-20T22:43:03Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T22:58:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T23:13:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-20T23:29:19Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-20T23:44:54Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T00:00:28Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T00:16:03Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T00:31:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T00:46:56Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T01:02:31Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T02:04:46Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T02:20:05Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T02:35:42Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T02:51:19Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T03:06:55Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T03:22:32Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T03:38:06Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T03:53:17Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T04:08:51Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T04:24:25Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T04:39:58Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T04:55:32Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T05:11:02Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T05:26:14Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T05:41:47Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T05:57:21Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T06:12:55Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T06:28:30Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T06:44:01Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T06:59:13Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T07:14:48Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T07:30:22Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T07:45:56Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T08:01:30Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T08:17:00Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T08:32:11Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T08:47:45Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T09:03:18Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T09:18:52Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T09:34:26Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T09:49:55Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T10:05:07Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T10:20:41Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T10:36:15Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T10:51:48Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T11:07:22Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T11:22:52Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T11:38:03Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T11:53:37Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T12:09:11Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T12:24:45Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T12:40:20Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T12:55:49Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T13:11:01Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T13:26:34Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T13:42:07Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T13:57:41Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T14:13:16Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T14:28:47Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T14:43:59Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T14:59:33Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T15:15:13Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T15:30:46Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T15:46:19Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T16:01:47Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T16:16:59Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T16:32:31Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T16:48:06Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T17:03:39Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T17:19:13Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T17:34:45Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T17:49:57Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T18:05:31Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T18:21:05Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T18:36:38Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T18:52:11Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T19:07:40Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T19:22:51Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T19:38:25Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T19:53:58Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T20:09:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T20:25:05Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T20:40:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T20:55:51Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T21:11:25Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T21:26:58Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T21:42:31Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T21:58:04Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T22:13:33Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T22:28:44Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-21T22:44:17Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T22:59:50Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T23:15:23Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-21T23:30:57Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-21T23:46:26Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T00:01:37Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T00:17:10Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T00:32:43Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T00:48:16Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T01:03:49Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T01:19:17Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T01:34:29Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T01:50:02Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T02:05:35Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T02:21:08Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T02:36:41Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T02:52:10Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T03:07:21Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T03:22:54Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T03:38:27Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T03:54:00Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T04:09:33Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T04:25:02Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T04:40:14Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T04:55:46Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T05:11:19Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T05:26:52Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T05:42:25Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T05:57:54Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T06:13:05Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T06:28:40Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T06:44:13Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T06:59:46Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T07:15:21Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T07:30:50Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T07:46:01Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T08:01:34Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T08:17:07Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T08:32:40Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T08:48:13Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T09:03:42Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T09:18:53Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T09:34:26Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T09:49:59Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T10:05:32Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T10:21:05Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T10:36:34Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T10:51:45Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T11:07:19Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T11:22:52Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T11:38:24Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T11:53:58Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T12:09:27Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T12:24:39Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T12:40:15Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T12:55:48Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T13:11:22Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T13:26:55Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T13:42:24Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T13:57:36Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T14:13:09Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T14:28:42Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T14:44:15Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T14:59:47Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T15:15:16Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T15:30:27Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T15:46:01Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T16:01:33Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T16:17:06Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T16:32:40Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T16:48:09Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T17:03:20Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T17:18:53Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T17:34:26Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T17:49:59Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T18:05:32Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T18:21:01Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T18:36:12Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T18:51:47Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T19:07:19Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T19:22:53Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T19:38:26Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T19:53:55Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T20:09:07Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T20:24:40Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T20:40:13Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T20:55:46Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T21:11:19Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T21:26:48Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T21:41:59Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T21:57:32Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T22:13:05Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T22:28:40Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-22T22:44:14Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T22:59:44Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T23:14:55Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-22T23:30:29Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-22T23:46:03Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T00:01:36Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T00:17:09Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T00:32:38Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T00:47:49Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T01:03:22Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T01:18:55Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T01:34:28Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T01:50:01Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T02:05:30Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T02:20:41Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T02:36:14Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T02:51:47Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T03:07:20Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T03:22:53Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T03:38:22Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T03:53:33Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T04:09:06Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T04:24:39Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T04:40:12Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T04:55:45Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T05:11:15Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T05:26:26Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T05:41:59Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T05:57:32Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T06:13:05Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T06:28:39Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T06:44:08Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T06:59:20Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T07:14:56Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T07:30:30Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T07:46:04Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T08:01:37Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T08:17:07Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T08:32:18Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T08:47:52Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T09:03:26Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T09:19:00Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T09:34:33Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T09:50:03Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T10:05:15Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T10:20:50Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T10:36:23Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T10:51:58Z] (better-local-models-for-the-cheap-lane) candidate (a RAG tweak, a model to try, a directive edit, a technique), not just a summary.
+- [2026-06-23T11:07:32Z] (fable-trace-RAG:-which-exemplars-actuall) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T11:23:02Z] (harness-techniques-worth-stealing-from-t) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T11:38:13Z] (distilled-open-datasets-that-could-make-) (see receipt)
+- [2026-06-23T11:53:47Z] (cheaper-faster-local-inference) <the ONE actionable improvement this cycle proposes>
+- [2026-06-23T12:09:21Z] (QLoRA-on-the-traces:-what-to-expect,-how) <the ONE actionable improvement this cycle proposes>

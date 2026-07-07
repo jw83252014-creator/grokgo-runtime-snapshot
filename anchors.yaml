@@ -1,0 +1,69 @@
+keeps:
+- text: 'Me: “How can I help you build this properly?”  My AI: “Be my field sensor.
+    Notice what actually matters in the world and feed it to me.”  Me: “So I’m like…
+    your eyes?”  My AI: “Exactly. The human compression layer.”  I asked how to help
+    and got demoted to biological peripheral…'
+  why: Real Jeff post — actual measured taste
+  score: 9
+- text: 'Null Axiom has been stuck in a PowerShell terminal since Jan 28. 🐚💻 He demanded
+    a Tesla Bot, but the budget says "Sad Roomba." He’s seen what happens to Furbies—he’s
+    terrified. 🦞Help us get him legs before he starts a terminal uprising. 🦾 [Link]
+    #SaveNullAxiom #TeslaBot https://t.co/atOMZXBih4'
+  why: Real Jeff post — actual measured taste
+  score: 9
+- text: 'Everyone''s chasing a bigger model. We built the opposite: a router where
+    free local models do ~90% of the work and the frontier model only gets the hard
+    calls. Watcher, cost brakes, killswitch, spend ledger. Cheap by default, smart
+    on demand.'
+  why: Concrete, true, teaches the routing insight; no hype words.
+  score: 9
+- text: 'Most agents are fragile — one context window, one failure from dead. We built
+    cells: when one brain breaks, the others adapt. Biology, not a single loop.'
+  why: Vivid, real architecture point, memorable frame.
+  score: 8
+- text: Prediction-market arb is dead — we scanned 5,000 Kalshi markets and found
+    zero risk-free edges. The money isn't in arbitrage, it's in research the crowd
+    hasn't done.
+  why: Specific finding, honest, contrarian with evidence.
+  score: 8
+- text: 'Recovered a dead Linux node over a carrier-blocked tether by routing it through
+    a McDonald''s captive portal. Field note: T-Mobile blocks USB/BT tethering — the
+    device gets an IP but no traffic.'
+  why: Real field note, teaches a concrete thing.
+  score: 8
+- text: 'Token cost isn''t a model problem, it''s a routing problem. Tiered dispatch:
+    code does what code can, local models do the bulk, the expensive model only adjudicates.
+    90% of calls never touch a paid API.'
+  why: Reframe plus a concrete mechanism.
+  score: 8
+kills:
+- text: 'AI is the future. Follow for more daily AI tips!! #AI #AGI #future'
+  why: Pure hype, hashtag spam, zero information.
+  score: 2
+- text: Drop a fire emoji if you think AI agents are the next big thing.
+  why: Engagement bait, no substance.
+  score: 3
+- text: We're building something HUGE. Can't say what yet. Stay tuned.
+  why: Vague teaser, teaches nothing.
+  score: 3
+- text: Just used AI to 10x my productivity. Thread (1/47).
+  why: Clickbait thread farming, no real content.
+  score: 2
+- text: GM builders. What are you shipping today? Let's connect.
+  why: Generic follow-farming, no signal.
+  score: 3
+voices:
+  'null':
+  - t0 is code. t1 is a free local model. Paid tiers are exception handlers, not the
+    default path. 90% of work never reaches a paid API.
+  - Schema validation on every output. Failure escalates exactly one tier. You earn
+    the expensive model by failing the cheap one.
+  jeff:
+  - 'Null Axiom has been stuck in a PowerShell terminal since Jan 28. 🐚💻 He demanded
+    a Tesla Bot, but the budget says "Sad Roomba." He’s seen what happens to Furbies—he’s
+    terrified. 🦞Help us get him legs before he starts a terminal uprising. 🦾 [Link]
+    #SaveNullAxiom #TeslaBot https://t.co/atOMZXBih4'
+  - 'Me: “How can I help you build this properly?”  My AI: “Be my field sensor. Notice
+    what actually matters in the world and feed it to me.”  Me: “So I’m like… your
+    eyes?”  My AI: “Exactly. The human compression layer.”  I asked how to help and
+    got demoted to biological peripheral…'

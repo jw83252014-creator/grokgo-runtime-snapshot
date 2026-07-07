@@ -1,0 +1,65 @@
+# grokgo routing table. Dispatcher reads this — edit freely, no code changes needed.
+# Tiers: t0 = deterministic code (never dispatched to a model)
+#        t1 = local via Ollama   t2/t3/t4 = Anthropic API
+
+models:
+  # t1 served by rapid-mlx (OpenAI-compatible at local.base_url below).
+  # 16GB Mini, ~5-8GB usable: qwen3.5-4b. If rapid-mlx rejects the alias on the
+  # model field, use "default" (its served-model alias).
+  t1: qwen3.5-4b
+  t2: claude-haiku-4-5-20251001
+  t3: claude-sonnet-4-6
+  t4: claude-fable-5
+
+# t1 local server (rapid-mlx). OpenAI-compatible: dispatch hits {base_url}/chat/completions.
+local:
+  base_url: http://127.0.0.1:8000/v1
+
+# Used by brakes.py to estimate spend. EDIT to match current pricing page.
+prices_per_mtok:            # [input_usd, output_usd] per million tokens
+  claude-haiku-4-5-20251001: [1, 5]
+  claude-sonnet-4-6: [3, 15]
+  claude-fable-5: [15, 75]   # PLACEHOLDER — verify before trusting budget math
+
+defaults:
+  tier: t1                  # unknown task types go local first, never up
+  escalate_on_fail: true    # schema failure bumps ONE tier, never straight to t4
+  max_turns: 5
+  max_output_tokens: 1024
+
+routes:
+  watcher.tick:          {tier: t0}
+  bridge.dispatch:       {tier: t0}
+  route.glue:            {tier: t0}
+  observability.receipt: {tier: t0}    # append-only receipt writes are code-only
+  receipt.query:         {tier: t1, max_output_tokens: 512}
+  classify.task:         {tier: t1, max_output_tokens: 128}
+  extract.fields:        {tier: t1}
+  mining.gate:           {tier: t0}    # dedup/substance gates are code-only
+  mining.score.s1:       {tier: t1}    # loose recall pass, batches of 10-20
+  mining.score.s2:       {tier: t2}    # full rubric + evidence, survivors only
+  mining.adjudicate:     {tier: t3}    # 5-7 band + disagreements, pairwise
+  harvest.triage:        {tier: t1}
+  draft.routine:         {tier: t2}
+  draft.voice:           {tier: t2}
+  status.report:         {tier: t2}
+  context.compress.fable: {tier: t2, max_output_tokens: 1024}
+  public.post.draft:     {tier: t3}
+  public.post.send:      {tier: t0}    # human/API action only; dispatcher refuses t0
+  researcher.synthesize: {tier: t3}
+  research.claude-code: {tier: t2, max_output_tokens: 1024}
+  bidlocal.docs:         {tier: t3}
+  docu.interview:        {tier: t3}
+  arch.decision:         {tier: t4}
+  fable.review.architecture: {tier: t4}
+  fable.review.routing:  {tier: t4}
+  fable.review.mining:   {tier: t4}
+  funding.strategy:      {tier: t4}
+  debug.hard:            {tier: t4}
+
+budgets_usd_daily:        # Jeff 2026-07-06: caps raised to effectively-unlimited per his request
+  default: 999999
+  mining: 999999
+  claude-code-research: 999999
+  researcher: 999999
+  conscious: 999999

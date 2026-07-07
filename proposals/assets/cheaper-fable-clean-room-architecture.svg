@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Clean-Room Fable-Like Agent Runtime</title>
+  <desc id="desc">A readable end-to-end architecture diagram for a local-first, safe, Fable-like agent runtime.</desc>
+  <rect width="1600" height="1600" fill="#f7f9fc"/>
+
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+    </marker>
+    <style>
+      .title { font: 800 54px Inter, Arial, sans-serif; fill: #111827; }
+      .subtitle { font: 22px Inter, Arial, sans-serif; fill: #4b5563; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2.5; }
+      .box-dark { fill: #111827; stroke: #111827; stroke-width: 2.5; }
+      .box-blue { fill: #eff6ff; stroke: #93c5fd; stroke-width: 2.5; }
+      .box-teal { fill: #ecfeff; stroke: #67e8f9; stroke-width: 2.5; }
+      .box-amber { fill: #fffbeb; stroke: #f59e0b; stroke-width: 2.5; }
+      .box-red { fill: #fef2f2; stroke: #fca5a5; stroke-width: 2.5; }
+      .head { font: 800 25px Inter, Arial, sans-serif; fill: #111827; }
+      .head-dark { font: 800 25px Inter, Arial, sans-serif; fill: #f9fafb; }
+      .body { font: 18px Inter, Arial, sans-serif; fill: #4b5563; }
+      .body-dark { font: 18px Inter, Arial, sans-serif; fill: #d1d5db; }
+      .kicker { font: 800 14px Inter, Arial, sans-serif; letter-spacing: .08em; fill: #2563eb; }
+      .guard { font: 800 18px Inter, Arial, sans-serif; fill: #92400e; }
+      .line { stroke: #2563eb; stroke-width: 5; fill: none; marker-end: url(#arrow-blue); }
+      .line-amber { stroke: #d97706; stroke-width: 5; fill: none; marker-end: url(#arrow-amber); }
+    </style>
+  </defs>
+
+  <text class="title" x="80" y="90">Clean-Room Fable-Like</text>
+  <text class="title" x="80" y="156">Agent Runtime</text>
+  <text class="subtitle" x="82" y="210">The durable asset is the controlled runtime: routing, memory, tools, evals,</text>
+  <text class="subtitle" x="82" y="242">ledger, brakes, and human approval. No leaked prompt dependency.</text>
+
+  <text class="kicker" x="80" y="328">01 INTAKE PIPELINE</text>
+  <g transform="translate(80 360)">
+    <rect class="box" x="0" y="0" width="250" height="130" rx="14"/>
+    <text class="head" x="24" y="43">Raw Input</text>
+    <text class="body" x="24" y="76">task, source,</text>
+    <text class="body" x="24" y="100">operator goal</text>
+
+    <path class="line" d="M 268 65 L 332 65"/>
+    <rect class="box-amber" x="350" y="0" width="300" height="130" rx="14"/>
+    <text class="head" x="376" y="43">Brakes + Ledger</text>
+    <text class="body" x="376" y="76">budget, loop, killswitch,</text>
+    <text class="body" x="376" y="100">lane spend</text>
+
+    <path class="line" d="M 668 65 L 732 65"/>
+    <rect class="box-teal" x="750" y="0" width="300" height="130" rx="14"/>
+    <text class="head" x="776" y="43">Mining Engine</text>
+    <text class="body" x="776" y="76">triage, dedupe,</text>
+    <text class="body" x="776" y="100">source scoring</text>
+
+    <path class="line" d="M 1068 65 L 1132 65"/>
+    <rect class="box-blue" x="1150" y="0" width="300" height="130" rx="14"/>
+    <text class="head" x="1176" y="43">Curated Context</text>
+    <text class="body" x="1176" y="76">approved notes,</text>
+    <text class="body" x="1176" y="100">memory, receipts</text>
+  </g>
+
+  <g transform="translate(80 570)">
+    <rect class="box-dark" x="0" y="0" width="1370" height="125" rx="18"/>
+    <text class="head-dark" x="34" y="45">Router Decision</text>
+    <text class="body-dark" x="34" y="82">Earn expensive calls by failing cheap lanes. Schema validation on every output. Escalate exactly one tier.</text>
+  </g>
+
+  <text class="kicker" x="80" y="768">02 MODEL LANES</text>
+  <g transform="translate(80 800)">
+    <rect class="box-teal" x="0" y="0" width="310" height="150" rx="14"/>
+    <text class="head" x="26" y="45">T0 Code / Rules</text>
+    <text class="body" x="26" y="82">grep, parsers, tests,</text>
+    <text class="body" x="26" y="108">schema validators</text>
+
+    <rect class="box-blue" x="355" y="0" width="310" height="150" rx="14"/>
+    <text class="head" x="381" y="45">T1 Local Models</text>
+    <text class="body" x="381" y="82">Ollama / MLX for cheap</text>
+    <text class="body" x="381" y="108">draft, triage, summary</text>
+
+    <rect class="box" x="710" y="0" width="310" height="150" rx="14"/>
+    <text class="head" x="736" y="45">T2 Cheap Cloud</text>
+    <text class="body" x="736" y="82">non-sensitive calls</text>
+    <text class="body" x="736" y="108">under brakes</text>
+
+    <rect class="box-red" x="1065" y="0" width="310" height="150" rx="14"/>
+    <text class="head" x="1091" y="45">T3 Frontier</text>
+    <text class="body" x="1091" y="82">hard reasoning only</text>
+    <text class="body" x="1091" y="108">with visible spend</text>
+  </g>
+
+  <text class="kicker" x="80" y="1068">03 TOOLING + GOVERNANCE LOOP</text>
+  <g transform="translate(80 1100)">
+    <rect class="box-dark" x="0" y="0" width="315" height="145" rx="14"/>
+    <text class="head-dark" x="26" y="44">OpenClaude / Tools</text>
+    <text class="body-dark" x="26" y="82">reviewable diffs,</text>
+    <text class="body-dark" x="26" y="108">sandboxed execution</text>
+
+    <path class="line" d="M 332 72 L 388 72"/>
+    <rect class="box" x="405" y="0" width="285" height="145" rx="14"/>
+    <text class="head" x="431" y="44">Output Receipts</text>
+    <text class="body" x="431" y="82">artifact, source,</text>
+    <text class="body" x="431" y="108">ledger record</text>
+
+    <path class="line" d="M 707 72 L 763 72"/>
+    <rect class="box-blue" x="780" y="0" width="315" height="145" rx="14"/>
+    <text class="head" x="806" y="44">Researcher Layer</text>
+    <text class="body" x="806" y="82">source checks, evals,</text>
+    <text class="body" x="806" y="108">dedupe, risk labels</text>
+
+    <path class="line" d="M 1112 72 L 1168 72"/>
+    <rect class="box-amber" x="1185" y="0" width="265" height="145" rx="14"/>
+    <text class="head" x="1211" y="44">Human Gate</text>
+    <text class="body" x="1211" y="82">approve posts, spend,</text>
+    <text class="body" x="1211" y="108">installs, config</text>
+  </g>
+
+  <g transform="translate(80 1390)">
+    <rect x="0" y="0" width="1370" height="105" rx="18" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+    <text class="guard" x="28" y="43">Safety boundary:</text>
+    <text class="body" x="205" y="43" fill="#92400e">no leaked prompts</text>
+    <text class="body" x="460" y="43" fill="#92400e">no raw trace training</text>
+    <text class="body" x="760" y="43" fill="#92400e">no secrets</text>
+    <text class="body" x="935" y="43" fill="#92400e">no auth bypass</text>
+    <text class="body" x="205" y="78" fill="#92400e">human approval for public actions, live config, installs, and spend</text>
+  </g>
+</svg>

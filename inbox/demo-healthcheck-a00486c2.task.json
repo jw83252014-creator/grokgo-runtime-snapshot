@@ -1,0 +1,9 @@
+{
+  "id": "demo-healthcheck-a00486c2",
+  "type": "demo.healthcheck",
+  "lane": "demo",
+  "turns": 0,
+  "input": {
+    "q": "Reply with: organism alive"
+  }
+}

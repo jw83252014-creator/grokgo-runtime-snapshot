@@ -1,0 +1,14 @@
+# heavy / generated — not worth backing up
+spikes/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+logs/fable-terminal-launch*.log
+logs/fable-terminal-launchd.out
+logs/fable-terminal-launchd.err
+# anything secret-shaped, never back up
+*.env
+*.key
+.secrets/
+*secret*.txt

@@ -1,0 +1,54 @@
+# Jeff Filter / mining lane config. Tune here, no code changes.
+lane: mining
+min_chars: 80          # S1 gate: anything shorter is junk by default
+batch_size: 15         # items per scoring call (batching = biggest per-item cost cut)
+
+# S1 gate: at least one domain keyword required (word-boundary match for single
+# words, substring for phrases). EDIT to taste.
+domain_keywords:
+  - agent
+  - agents
+  - ai
+  - llm
+  - physics
+  - prediction
+  - market
+  - polymarket
+  - contractor
+  - fencing
+  - marketplace
+  - bid local
+  - funding
+  - grant
+  - constraint
+  - isomorphism
+  - protocol
+  - simulation
+  - swarm
+  - terrarium
+
+# S1 gate: obvious engagement bait dies for free.
+bait_patterns:
+  - rt to win
+  - follow back
+  - link in bio
+  - giveaway
+  - tag a friend
+  - drop a
+  - "who's with me"
+
+embed:                 # S2 prior. Two options:
+  # api: ollama  -> keep nomic-embed-text on Ollama (purpose-built embeddings,
+  #                 ~0.5GB; best similarity quality; needs Ollama running on 11434)
+  # api: openai  -> rapid-mlx /v1/embeddings (one server, but embeddings come from
+  #                 a generative model = weaker similarity; test before trusting)
+  # On a 16GB Mini, nomic-on-Ollama alongside qwen3.5-4b fits and is the safer pick.
+  api: ollama
+  url: http://127.0.0.1:11434/api/embeddings   # openai mode: http://127.0.0.1:8000/v1
+  model: nomic-embed-text
+  exemplars: exemplars.jsonl   # built via: mining_pipeline.py add-exemplar "<text>"
+  timeout: 5
+
+thresholds:
+  draft_min_total: 8   # >= and route null|jeff -> straight to draft
+  adjudicate_min: 5    # [5, 8) or confidence=borderline -> mining.adjudicate

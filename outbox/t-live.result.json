@@ -1,0 +1,19 @@
+{
+  "task": "t-live",
+  "type": "harvest.triage",
+  "tier": "t1",
+  "model": "qwen3.5-4b",
+  "cost_usd": 0.0,
+  "output": [
+    {
+      "id": "a",
+      "keep": true,
+      "reason": "Substantive AI agent architecture"
+    },
+    {
+      "id": "b",
+      "keep": false,
+      "reason": "Engagement bait, not on-domain"
+    }
+  ]
+}

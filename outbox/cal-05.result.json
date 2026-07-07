@@ -1,0 +1,12 @@
+{
+  "task": "cal-05",
+  "type": "harvest.triage",
+  "tier": "t1",
+  "model": "openai/gpt-4o-mini",
+  "cost_usd": 0.0,
+  "output": {
+    "id": "a",
+    "keep": true,
+    "reason": "Discusses AI agents and dynamic computation."
+  }
+}

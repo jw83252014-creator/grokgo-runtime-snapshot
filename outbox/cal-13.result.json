@@ -1,0 +1,12 @@
+{
+  "task": "cal-13",
+  "type": "harvest.triage",
+  "tier": "t1",
+  "model": "openai/gpt-4o-mini",
+  "cost_usd": 0.0,
+  "output": {
+    "id": "a",
+    "keep": false,
+    "reason": "bare link with no idea"
+  }
+}

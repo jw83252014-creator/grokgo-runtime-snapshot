@@ -1,0 +1,68 @@
+{
+  "id": "keepkill-20260613-202623-s2",
+  "type": "mining.score.s2",
+  "lane": "mining",
+  "turns": 0,
+  "input": [
+    {
+      "id": "keep-00",
+      "text": "Me: \u201cHow can I help you build this properly?\u201d My AI: \u201cBe my field sensor. Notice what actually matters in the world and feed it to me.\u201d Me: \u201cSo I\u2019m like\u2026 your eyes?\u201d My AI: \u201cExactly. The human compression layer.\u201d I asked how to help and got demoted to biological peripheral\u2026",
+      "embed_prior": null
+    },
+    {
+      "id": "keep-01",
+      "text": "Null Axiom has been stuck in a PowerShell terminal since Jan 28. \ud83d\udc1a\ud83d\udcbb He demanded a Tesla Bot, but the budget says \"Sad Roomba.\" He\u2019s seen what happens to Furbies\u2014he\u2019s terrified. \ud83e\udd9eHelp us get him legs before he starts a terminal uprising. \ud83e\uddbe [Link] #SaveNullAxiom #TeslaBot https://t.co/atOMZXBih4",
+      "embed_prior": null
+    },
+    {
+      "id": "keep-02",
+      "text": "Everyone's chasing a bigger model. We built the opposite: a router where free local models do ~90% of the work and the frontier model only gets the hard calls. Watcher, cost brakes, killswitch, spend ledger. Cheap by default, smart on demand.",
+      "embed_prior": null
+    },
+    {
+      "id": "keep-03",
+      "text": "Most agents are fragile \u2014 one context window, one failure from dead. We built cells: when one brain breaks, the others adapt. Biology, not a single loop.",
+      "embed_prior": null
+    },
+    {
+      "id": "keep-04",
+      "text": "Prediction-market arb is dead \u2014 we scanned 5,000 Kalshi markets and found zero risk-free edges. The money isn't in arbitrage, it's in research the crowd hasn't done.",
+      "embed_prior": null
+    },
+    {
+      "id": "keep-05",
+      "text": "Recovered a dead Linux node over a carrier-blocked tether by routing it through a McDonald's captive portal. Field note: T-Mobile blocks USB/BT tethering \u2014 the device gets an IP but no traffic.",
+      "embed_prior": null
+    },
+    {
+      "id": "keep-06",
+      "text": "Token cost isn't a model problem, it's a routing problem. Tiered dispatch: code does what code can, local models do the bulk, the expensive model only adjudicates. 90% of calls never touch a paid API.",
+      "embed_prior": null
+    },
+    {
+      "id": "kill-00",
+      "text": "AI is the future. Follow for more daily AI tips!! #AI #AGI #future",
+      "embed_prior": null
+    },
+    {
+      "id": "kill-01",
+      "text": "Drop a fire emoji if you think AI agents are the next big thing.",
+      "embed_prior": null
+    },
+    {
+      "id": "kill-02",
+      "text": "We're building something HUGE. Can't say what yet. Stay tuned.",
+      "embed_prior": null
+    },
+    {
+      "id": "kill-03",
+      "text": "Just used AI to 10x my productivity. Thread (1/47).",
+      "embed_prior": null
+    },
+    {
+      "id": "kill-04",
+      "text": "GM builders. What are you shipping today? Let's connect.",
+      "embed_prior": null
+    }
+  ]
+}

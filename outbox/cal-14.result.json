@@ -1,0 +1,12 @@
+{
+  "task": "cal-14",
+  "type": "harvest.triage",
+  "tier": "t1",
+  "model": "openai/gpt-4o-mini",
+  "cost_usd": 0.0,
+  "output": {
+    "id": "a",
+    "keep": true,
+    "reason": "describes AI agent architecture"
+  }
+}

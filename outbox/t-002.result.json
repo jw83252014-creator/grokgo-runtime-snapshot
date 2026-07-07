@@ -1,0 +1,12 @@
+{
+  "task": "t-002",
+  "type": "harvest.triage",
+  "tier": "t1",
+  "model": "qwen3.5-4b",
+  "cost_usd": 0.0,
+  "output": {
+    "dry_run": true,
+    "routed_tier": "t1",
+    "routed_model": "qwen3.5-4b"
+  }
+}

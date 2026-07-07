@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bridge Dispatch"
+  short_description: "Route gated tasks to Agent Bridge lanes"
+  default_prompt: "Use $bridge-dispatch to route a gated task to one Agent Bridge lane and update the shared task board."

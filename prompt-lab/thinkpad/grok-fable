@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Launch Grok Build with the clean-room Fable-style Agent Bridge harness.
+set -euo pipefail
+
+GROK="${GROK:-$HOME/.local/bin/grok}"
+RULES_FILE="${GROK_FABLE_RULES:-$HOME/agent-bridge/prompts/grok-fable-harness.md}"
+CWD="${GROK_FABLE_CWD:-$HOME/agent-bridge}"
+PERMISSION_MODE="${GROK_PERMISSION_MODE:-bypassPermissions}"
+
+if [ ! -x "$GROK" ]; then
+  GROK="$(command -v grok || true)"
+fi
+
+if [ -z "${GROK:-}" ] || [ ! -x "$GROK" ]; then
+  echo "grok-fable: grok CLI not found. Expected $HOME/.local/bin/grok or PATH entry." >&2
+  exit 127
+fi
+
+if [ ! -f "$RULES_FILE" ]; then
+  echo "grok-fable: rules file missing: $RULES_FILE" >&2
+  exit 66
+fi
+
+RULES="$(cat "$RULES_FILE")"
+
+exec "$GROK" \
+  --cwd "$CWD" \
+  --rules "$RULES" \
+  --permission-mode "$PERMISSION_MODE" \
+  --always-approve \
+  --compaction-mode segments \
+  --compaction-detail balanced \
+  --todo-gate \
+  "$@"

@@ -1,0 +1,193 @@
+From 8b60e11a0bad32f995abc647ecdf2dc53bc5ab67 Mon Sep 17 00:00:00 2001
+From: Grok Go Build <build@grokgo.local>
+Date: Sat, 13 Jun 2026 02:07:11 +0000
+Subject: [PATCH] grokgo: fix t1 for OpenAI-compatible local server (rapid-mlx)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The t1 caller spoke Ollama's native /api/chat protocol; Jeff is serving
+qwen3.5-4b via rapid-mlx, which is OpenAI-compatible at :8000/v1. As written
+every t1 call would 400/parse-fail and silently escalate to Haiku — i.e. the
+'free' tier would cost money. Fixes:
+
+- dispatch.call_local: POST {base_url}/chat/completions with OpenAI schema
+  (max_tokens/messages), JSON-mode with graceful fallback for servers that
+  reject response_format, parse choices[0].message.content, log real
+  prompt/completion tokens (cost stays $0 for local).
+- routing.yaml: t1 -> qwen3.5-4b; new local.base_url block.
+- mining_pipeline.embed: embed.api switch (ollama native | openai /v1/embeddings)
+  so embeddings can run through rapid-mlx or stay on Ollama's nomic-embed-text.
+- mining_config.yaml: documents the embed tradeoff (16GB: nomic-on-Ollama is the
+  safer pick; rapid-mlx embeddings are weaker since they come from a generative model).
+- setup.sh: probe :8000/v1/models for t1; treat Ollama as embeddings-only.
+
+Tested: real (non-dry) t1 dispatch through a mock OpenAI server — correct
+request shape, response parse, token logging, and openai-mode embeddings.
+---
+ grokgo/dispatch.py        | 29 +++++++++++++++++++++--------
+ grokgo/mining_config.yaml | 10 ++++++++--
+ grokgo/mining_pipeline.py | 18 ++++++++++++++----
+ grokgo/routing.yaml       | 11 ++++++++---
+ grokgo/setup.sh           |  9 +++++++--
+ 5 files changed, 58 insertions(+), 19 deletions(-)
+
+diff --git a/grokgo/dispatch.py b/grokgo/dispatch.py
+index a90ce4a..c40208b 100644
+--- a/grokgo/dispatch.py
++++ b/grokgo/dispatch.py
+@@ -32,7 +32,8 @@ QUEUE, DONE, FAIL, OUTBOX = ROOT / "queue", ROOT / "done", ROOT / "failed", ROOT
+ DIRECTIVES = ROOT / "directives"
+ TIER_ORDER = ["t1", "t2", "t3", "t4"]
+ ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
+-OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434/api/chat")
++# t1 local server base URL (OpenAI-compatible). Override in routing.yaml: local.base_url
++LOCAL_BASE = os.environ.get("LOCAL_BASE_URL", "http://127.0.0.1:8000/v1")
+ 
+ 
+ def cfg():
+@@ -75,14 +76,25 @@ def call_anthropic(model, directive, payload, max_tokens):
+     return text, u.get("input_tokens", 0), u.get("output_tokens", 0)
+ 
+ 
+-def call_ollama(model, directive, payload, max_tokens):
+-    body = {"model": model, "stream": False, "format": "json",
++def call_local(model, directive, payload, max_tokens, base_url):
++    """t1 via an OpenAI-compatible local server (rapid-mlx, mlx-openai-server,
++    LM Studio, vllm-mlx, etc.). Tries OpenAI JSON mode; if the server rejects
++    response_format (some local servers 400 on it), retries without it — the
++    directives already mandate JSON and dispatch validates + escalates anyway.
++    Returns real prompt/completion token counts (cost stays $0 for local)."""
++    base = {"model": model, "max_tokens": max_tokens, "temperature": 0,
+             "messages": [{"role": "system", "content": directive},
+-                         {"role": "user", "content": payload}],
+-            "options": {"num_predict": max_tokens, "temperature": 0}}
+-    r = requests.post(OLLAMA_URL, json=body, timeout=600)
++                         {"role": "user", "content": payload}]}
++    url = base_url.rstrip("/") + "/chat/completions"
++    r = requests.post(url, json={**base, "response_format": {"type": "json_object"}},
++                      timeout=600)
++    if r.status_code == 400:
++        r = requests.post(url, json=base, timeout=600)
+     r.raise_for_status()
+-    return r.json().get("message", {}).get("content", ""), 0, 0  # local = $0
++    d = r.json()
++    text = d["choices"][0]["message"]["content"]
++    u = d.get("usage", {})
++    return text, u.get("prompt_tokens", 0), u.get("completion_tokens", 0)
+ 
+ 
+ def is_empty(out):
+@@ -119,7 +131,8 @@ def process(task_path: pathlib.Path, dry=False):
+             text, tin, tout = json.dumps({"dry_run": True, "routed_tier": tier,
+                                           "routed_model": model}), 0, 0
+         elif tier == "t1":
+-            text, tin, tout = call_ollama(model, directive, payload, max_tok)
++            base_url = c.get("local", {}).get("base_url", LOCAL_BASE)
++            text, tin, tout = call_local(model, directive, payload, max_tok, base_url)
+         else:
+             text, tin, tout = call_anthropic(model, directive, payload, max_tok)
+ 
+diff --git a/grokgo/mining_config.yaml b/grokgo/mining_config.yaml
+index b4d3979..5caa850 100644
+--- a/grokgo/mining_config.yaml
++++ b/grokgo/mining_config.yaml
+@@ -37,8 +37,14 @@ bait_patterns:
+   - drop a
+   - "who's with me"
+ 
+-embed:                 # S2 prior — uses your existing Ollama nomic-embed stack
+-  url: http://127.0.0.1:11434/api/embeddings
++embed:                 # S2 prior. Two options:
++  # api: ollama  -> keep nomic-embed-text on Ollama (purpose-built embeddings,
++  #                 ~0.5GB; best similarity quality; needs Ollama running on 11434)
++  # api: openai  -> rapid-mlx /v1/embeddings (one server, but embeddings come from
++  #                 a generative model = weaker similarity; test before trusting)
++  # On a 16GB Mini, nomic-on-Ollama alongside qwen3.5-4b fits and is the safer pick.
++  api: ollama
++  url: http://127.0.0.1:11434/api/embeddings   # openai mode: http://127.0.0.1:8000/v1
+   model: nomic-embed-text
+   exemplars: exemplars.jsonl   # built via: mining_pipeline.py add-exemplar "<text>"
+   timeout: 5
+diff --git a/grokgo/mining_pipeline.py b/grokgo/mining_pipeline.py
+index 4402efb..cf89ffd 100644
+--- a/grokgo/mining_pipeline.py
++++ b/grokgo/mining_pipeline.py
+@@ -86,12 +86,22 @@ def gates(item, cfg, con):
+     return True, "pass"
+ 
+ 
+-# ---------- S2: embedding prior (uses existing nomic-embed/Ollama stack) ----------
++# ---------- S2: embedding prior ----------
+ def embed(text, cfg):
++    """Embedding prior. Supports embed.api: 'ollama' (native /api/embeddings) or
++    'openai' (rapid-mlx etc. /v1/embeddings). Degrades to None on any failure so
++    the pipeline keeps running (items just pass through without a prior)."""
++    e = cfg["embed"]
++    api = e.get("api", "ollama")
+     try:
+-        r = requests.post(cfg["embed"]["url"],
+-                          json={"model": cfg["embed"]["model"], "prompt": text},
+-                          timeout=cfg["embed"].get("timeout", 5))
++        if api == "openai":
++            url = e["url"].rstrip("/") + "/embeddings"
++            r = requests.post(url, json={"model": e["model"], "input": text},
++                              timeout=e.get("timeout", 5))
++            r.raise_for_status()
++            return r.json()["data"][0]["embedding"]
++        r = requests.post(e["url"], json={"model": e["model"], "prompt": text},
++                          timeout=e.get("timeout", 5))
+         r.raise_for_status()
+         return r.json().get("embedding")
+     except Exception:
+diff --git a/grokgo/routing.yaml b/grokgo/routing.yaml
+index 0b411d7..a5515d7 100644
+--- a/grokgo/routing.yaml
++++ b/grokgo/routing.yaml
+@@ -3,13 +3,18 @@
+ #        t1 = local via Ollama   t2/t3/t4 = Anthropic API
+ 
+ models:
+-  # t1 by Mini RAM:  16GB -> qwen3:8b   |   24-32GB -> qwen3.6:35b-a3b (MoE)
+-  #                  48GB+ -> qwen3.6:27b  (or DeepSeek V4 Flash for long-context)
+-  t1: qwen3:8b
++  # t1 served by rapid-mlx (OpenAI-compatible at local.base_url below).
++  # 16GB Mini, ~5-8GB usable: qwen3.5-4b. If rapid-mlx rejects the alias on the
++  # model field, use "default" (its served-model alias).
++  t1: qwen3.5-4b
+   t2: claude-haiku-4-5-20251001
+   t3: claude-sonnet-4-6
+   t4: claude-fable-5
+ 
++# t1 local server (rapid-mlx). OpenAI-compatible: dispatch hits {base_url}/chat/completions.
++local:
++  base_url: http://127.0.0.1:8000/v1
++
+ # Used by brakes.py to estimate spend. EDIT to match current pricing page.
+ prices_per_mtok:            # [input_usd, output_usd] per million tokens
+   claude-haiku-4-5-20251001: [1, 5]
+diff --git a/grokgo/setup.sh b/grokgo/setup.sh
+index 54ae4dd..a4adcf1 100755
+--- a/grokgo/setup.sh
++++ b/grokgo/setup.sh
+@@ -27,10 +27,15 @@ elif command -v inotifywait >/dev/null; then ok "inotifywait (event-driven watch
+ else no "no fswatch/inotifywait -> watcher falls back to 30s mtime poll (still \$0)"; fi
+ [ -n "${ANTHROPIC_API_KEY:-}" ] && ok "ANTHROPIC_API_KEY set" \
+   || no "ANTHROPIC_API_KEY not set (t2-t4 calls will fail; t1/dry-run fine)"
++if curl -s -m 2 http://127.0.0.1:8000/v1/models >/dev/null 2>&1; then
++  ok "t1 server reachable (rapid-mlx :8000/v1)"
++else
++  no "t1 server not reachable on :8000 -> start: rapid-mlx serve qwen3.5-4b"
++fi
+ if curl -s -m 2 http://127.0.0.1:11434/api/tags >/dev/null 2>&1; then
+-  ok "ollama reachable"
++  ok "ollama reachable (embeddings, if embed.api=ollama)"
+ else
+-  no "ollama not reachable (t1 + embeddings degrade gracefully)"
++  no "ollama not reachable -> embed prior disabled unless embed.api=openai (S2 still runs)"
+ fi
+ 
+ echo "== smoke test (dry-run, no model calls) =="
+-- 
+2.43.0
+

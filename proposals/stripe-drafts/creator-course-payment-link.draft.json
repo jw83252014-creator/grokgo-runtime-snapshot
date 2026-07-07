@@ -1,0 +1,49 @@
+{
+  "status": "draft_only",
+  "stripe_mode": "test",
+  "live_mode_allowed": false,
+  "keys_in_code_allowed": false,
+  "external_send_allowed": false,
+  "offer": {
+    "slug": "creator-course-niche-mining",
+    "name": "Find Your Niche by Mining Your Own Data",
+    "type": "creator_course",
+    "format": "90-minute workshop or recorded class",
+    "description": "A creator workshop that turns a messy archive into a niche thesis, audience map, content pillars, and a 14-day posting experiment board.",
+    "deliverables": [
+      "niche thesis",
+      "audience map",
+      "three content pillars",
+      "14-day posting experiment board",
+      "Jeff Filter checklist"
+    ]
+  },
+  "pricing": {
+    "currency": "usd",
+    "amount_cents": null,
+    "price_status": "needs_jeff_approval",
+    "suggested_test_prices_cents": [9700, 14900]
+  },
+  "payment_link": {
+    "status": "not_created",
+    "test_url": null,
+    "live_url": null,
+    "creation_gate": "Jeff approves price and copy first"
+  },
+  "copy": {
+    "headline": "Find your niche by mining your own data.",
+    "description": "Bring your messy archive. We help you find the repeated signal, map what your audience will actually care about, and leave with a 14-day posting board that keeps your voice intact."
+  },
+  "gates": [
+    "test mode only",
+    "no live charges",
+    "no keys in code",
+    "no checkout link sent externally without Jeff approval",
+    "no creator-client data processing without consent boundaries"
+  ],
+  "sources": [
+    "/Users/rentamac/grokgo/proposals/creator-x-course-engine.md",
+    "/Users/rentamac/grokgo/proposals/paths-to-money.md",
+    "/Users/rentamac/grokgo/proposals/master-backlog.md"
+  ]
+}
